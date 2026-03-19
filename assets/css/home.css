@@ -271,11 +271,8 @@
 ════════════════════════════════════════ */
 .biz-diagram {
   margin-bottom: 56px;
-  background: var(--white);
-  border: 1px solid var(--gray-200);
   border-radius: 20px;
   padding: 52px 40px;
-  box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
