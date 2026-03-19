@@ -1,0 +1,198 @@
+<svg viewBox="0 0 1100 500" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Pretendard, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBF2FF"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <linearGradient id="hubFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B3A6B"/>
+      <stop offset="100%" stop-color="#0D2147"/>
+    </linearGradient>
+    <filter id="cs" x="-15%" y="-15%" width="130%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#0D2147" flood-opacity="0.10"/>
+    </filter>
+    <filter id="hs" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#0D2147" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#3B82F6" opacity="0.5"/>
+    </marker>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#CBD5E1" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1100" height="500" fill="url(#bg)" rx="20"/>
+  <rect width="1100" height="500" fill="url(#dots)" rx="20"/>
+
+  <!-- ════ 연결선 (허브 중심 → 각 카드 중심) ════ -->
+  <!-- 중앙 허브: cx=550 cy=230 -->
+  <!-- 좌상 카드 중심: 100+190/2=195, 64+140/2=134  → (195,134) -->
+  <!-- 우상 카드 중심: 815+190/2=910, 64+140/2=134  → (910,134) -->
+  <!-- 좌하 카드 중심: 100+190/2=195, 296+140/2=366 → (195,366) -->
+  <!-- 우하 카드 중심: 815+190/2=910, 296+140/2=366 → (910,366) -->
+  <!-- 하단 카드 중심: 405+190/2=500, 390+66/2=423  → (500,423) -->
+
+  <!-- 좌상 연결 -->
+  <line x1="486" y1="186" x2="280" y2="134" stroke="#3B82F6" stroke-width="1.8" stroke-dasharray="6 5" opacity="0.4" marker-end="url(#arrowBlue)"/>
+  <!-- 우상 연결 -->
+  <line x1="614" y1="186" x2="820" y2="134" stroke="#3B82F6" stroke-width="1.8" stroke-dasharray="6 5" opacity="0.4" marker-end="url(#arrowBlue)"/>
+  <!-- 좌하 연결 -->
+  <line x1="486" y1="274" x2="280" y2="366" stroke="#3B82F6" stroke-width="1.8" stroke-dasharray="6 5" opacity="0.4" marker-end="url(#arrowBlue)"/>
+  <!-- 우하 연결 -->
+  <line x1="614" y1="274" x2="820" y2="366" stroke="#3B82F6" stroke-width="1.8" stroke-dasharray="6 5" opacity="0.4" marker-end="url(#arrowBlue)"/>
+  <!-- 하단 연결 -->
+  <line x1="550" y1="300" x2="550" y2="390" stroke="#3B82F6" stroke-width="1.8" stroke-dasharray="6 5" opacity="0.4" marker-end="url(#arrowBlue)"/>
+
+  <!-- 연결 끝점 도트 -->
+  <circle cx="280" cy="134" r="5" fill="#3B82F6" opacity="0.55"/>
+  <circle cx="820" cy="134" r="5" fill="#3B82F6" opacity="0.55"/>
+  <circle cx="280" cy="366" r="5" fill="#3B82F6" opacity="0.55"/>
+  <circle cx="820" cy="366" r="5" fill="#3B82F6" opacity="0.55"/>
+  <circle cx="550" cy="390" r="5" fill="#3B82F6" opacity="0.55"/>
+
+  <!-- 움직이는 패킷들 -->
+  <circle r="4" fill="#3B82F6" opacity="0.8">
+    <animateMotion dur="2.8s" repeatCount="indefinite" begin="0s">
+      <mpath href="#ln1"/>
+    </animateMotion>
+  </circle>
+  <path id="ln1" d="M550,230 L280,134" fill="none"/>
+
+  <circle r="4" fill="#3B82F6" opacity="0.8">
+    <animateMotion dur="3.1s" repeatCount="indefinite" begin="0.7s">
+      <mpath href="#ln2"/>
+    </animateMotion>
+  </circle>
+  <path id="ln2" d="M550,230 L820,134" fill="none"/>
+
+  <circle r="4" fill="#3B82F6" opacity="0.8">
+    <animateMotion dur="2.6s" repeatCount="indefinite" begin="1.4s">
+      <mpath href="#ln3"/>
+    </animateMotion>
+  </circle>
+  <path id="ln3" d="M550,230 L280,366" fill="none"/>
+
+  <circle r="4" fill="#3B82F6" opacity="0.8">
+    <animateMotion dur="3.3s" repeatCount="indefinite" begin="0.3s">
+      <mpath href="#ln4"/>
+    </animateMotion>
+  </circle>
+  <path id="ln4" d="M550,230 L820,366" fill="none"/>
+
+  <circle r="4" fill="#3B82F6" opacity="0.8">
+    <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.0s">
+      <mpath href="#ln5"/>
+    </animateMotion>
+  </circle>
+  <path id="ln5" d="M550,230 L550,390" fill="none"/>
+
+  <!-- ════ 중앙 허브 ════ -->
+  <circle cx="550" cy="230" r="78" fill="url(#hubFill)" filter="url(#hs)"/>
+  <!-- 외곽 회전 링 -->
+  <circle cx="550" cy="230" r="90" fill="none" stroke="#3B82F6" stroke-width="1.2" stroke-dasharray="4 6" opacity="0.3">
+    <animateTransform attributeName="transform" type="rotate" from="0 550 230" to="360 550 230" dur="20s" repeatCount="indefinite"/>
+  </circle>
+  <!-- 내부 링 -->
+  <circle cx="550" cy="230" r="68" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+  <!-- 허브 아이콘 (네트워크) -->
+  <g transform="translate(524,204)" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="26" cy="26" r="6" fill="#3B82F6" stroke="none"/>
+    <circle cx="7"  cy="10" r="3.5" stroke="rgba(255,255,255,0.7)"/>
+    <circle cx="45" cy="10" r="3.5" stroke="rgba(255,255,255,0.7)"/>
+    <circle cx="7"  cy="42" r="3.5" stroke="rgba(255,255,255,0.7)"/>
+    <circle cx="45" cy="42" r="3.5" stroke="rgba(255,255,255,0.7)"/>
+    <line x1="26" y1="20" x2="10"  y2="12.5"/>
+    <line x1="26" y1="20" x2="42"  y2="12.5"/>
+    <line x1="26" y1="32" x2="10"  y2="39.5"/>
+    <line x1="26" y1="32" x2="42"  y2="39.5"/>
+  </g>
+  <text x="550" y="276" text-anchor="middle" font-size="11.5" font-weight="700" fill="#60A5FA" letter-spacing="2.5" font-family="Inter, sans-serif">IoT HUB</text>
+
+  <!-- ════ 카드 (사이트와 동일 스타일) ════ -->
+  <!-- 카드 크기: 190×140, 상단 네이비 4px 바 -->
+
+  <!-- 1. 시스템 통합 (좌상) cx=195 cy=134 → rect x=100 y=64 -->
+  <g filter="url(#cs)">
+    <rect x="100" y="64" width="190" height="140" rx="14" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="100" y="64" width="190" height="4"   rx="2"  fill="#0D2147"/>
+    <rect x="120" y="88" width="36"  height="36"  rx="10" fill="#EBF2FF"/>
+    <!-- 격자 아이콘 -->
+    <g stroke="#2E5FA3" stroke-width="1.5" fill="none" transform="translate(129,97)">
+      <rect x="0" y="0" width="7" height="7" rx="1.5"/>
+      <rect x="10" y="0" width="7" height="7" rx="1.5"/>
+      <rect x="0" y="10" width="7" height="7" rx="1.5"/>
+      <rect x="10" y="10" width="7" height="7" rx="1.5"/>
+    </g>
+    <text x="165" y="103" font-size="13" font-weight="700" fill="#0D2147" font-family="Pretendard, sans-serif">시스템 통합</text>
+    <text x="120" y="148" font-size="11.5" fill="#64748B" font-family="Pretendard, sans-serif">H/W · S/W · N/W</text>
+    <text x="120" y="166" font-size="11.5" fill="#64748B" font-family="Pretendard, sans-serif">통합 구축 서비스</text>
+  </g>
+
+  <!-- 2. 컨설팅 (우상) cx=910 cy=134 → rect x=815 y=64 -->
+  <g filter="url(#cs)">
+    <rect x="815" y="64" width="190" height="140" rx="14" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="815" y="64" width="190" height="4"   rx="2"  fill="#0D2147"/>
+    <rect x="835" y="88" width="36"  height="36"  rx="10" fill="#EBF2FF"/>
+    <!-- 사람 아이콘 -->
+    <g stroke="#2E5FA3" stroke-width="1.5" fill="none" transform="translate(843,93)">
+      <path d="M10 1a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"/>
+      <line x1="10" y1="7" x2="10" y2="11" stroke-linecap="round"/>
+      <circle cx="10" cy="14" r="0.8" fill="#2E5FA3"/>
+    </g>
+    <text x="881" y="103" font-size="13" font-weight="700" fill="#0D2147" font-family="Pretendard, sans-serif">컨설팅 서비스</text>
+    <text x="835" y="148" font-size="11.5" fill="#64748B" font-family="Pretendard, sans-serif">공공·기업 대상</text>
+    <text x="835" y="166" font-size="11.5" fill="#64748B" font-family="Pretendard, sans-serif">IT 전략 컨설팅</text>
+  </g>
+
+  <!-- 3. 유지관리 (좌하) cx=195 cy=366 → rect x=100 y=296 -->
+  <g filter="url(#cs)">
+    <rect x="100" y="296" width="190" height="140" rx="14" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="100" y="296" width="190" height="4"   rx="2"  fill="#0D2147"/>
+    <rect x="120" y="320" width="36"  height="36"  rx="10" fill="#EBF2FF"/>
+    <!-- 렌치 아이콘 -->
+    <g stroke="#2E5FA3" stroke-width="1.5" fill="none" transform="translate(127,326)">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="165" y="335" font-size="13" font-weight="700" fill="#0D2147" font-family="Pretendard, sans-serif">유지관리</text>
+    <text x="120" y="380" font-size="11.5" fill="#64748B" font-family="Pretendard, sans-serif">운영 · 장애처리 · AS</text>
+    <text x="120" y="398" font-size="11.5" fill="#64748B" font-family="Pretendard, sans-serif">기술지원 서비스</text>
+  </g>
+
+  <!-- 4. H/W·S/W 판매 (우하) cx=910 cy=366 → rect x=815 y=296 -->
+  <g filter="url(#cs)">
+    <rect x="815" y="296" width="190" height="140" rx="14" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="815" y="296" width="190" height="4"   rx="2"  fill="#0D2147"/>
+    <rect x="835" y="320" width="36"  height="36"  rx="10" fill="#EBF2FF"/>
+    <!-- 모니터 아이콘 -->
+    <g stroke="#2E5FA3" stroke-width="1.5" fill="none" transform="translate(842,326)">
+      <rect x="0" y="2" width="22" height="16" rx="2"/>
+      <path d="M14 18v-2a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2" stroke-linecap="round"/>
+    </g>
+    <text x="881" y="335" font-size="13" font-weight="700" fill="#0D2147" font-family="Pretendard, sans-serif">H/W · S/W 판매</text>
+    <text x="835" y="380" font-size="11.5" fill="#64748B" font-family="Pretendard, sans-serif">최적 구성 장비</text>
+    <text x="835" y="398" font-size="11.5" fill="#64748B" font-family="Pretendard, sans-serif">공급 및 기술지원</text>
+  </g>
+
+  <!-- 5. R&D (하단 중앙) cx=500 cy=423 → rect x=405 y=390 -->
+  <g filter="url(#cs)">
+    <rect x="405" y="390" width="290" height="66" rx="33" fill="#0D2147"/>
+    <!-- 아이콘 배경 -->
+    <rect x="426" y="406" width="36" height="36" rx="10" fill="rgba(96,165,250,0.18)"/>
+    <!-- 태양 아이콘 -->
+    <g stroke="#60A5FA" stroke-width="1.5" fill="none" transform="translate(433,413)">
+      <circle cx="11" cy="11" r="4"/>
+      <line x1="11" y1="0"  x2="11" y2="3"  stroke-linecap="round"/>
+      <line x1="11" y1="19" x2="11" y2="22" stroke-linecap="round"/>
+      <line x1="0"  y1="11" x2="3"  y2="11" stroke-linecap="round"/>
+      <line x1="19" y1="11" x2="22" y2="11" stroke-linecap="round"/>
+      <line x1="3.2" y1="3.2" x2="5.3" y2="5.3" stroke-linecap="round"/>
+      <line x1="16.7" y1="16.7" x2="18.8" y2="18.8" stroke-linecap="round"/>
+      <line x1="3.2" y1="18.8" x2="5.3" y2="16.7" stroke-linecap="round"/>
+      <line x1="16.7" y1="5.3" x2="18.8" y2="3.2" stroke-linecap="round"/>
+    </g>
+    <text x="474" y="418" font-size="14" font-weight="700" fill="white" font-family="Pretendard, sans-serif">R&amp;D 개발</text>
+    <text x="474" y="438" font-size="12" fill="#60A5FA" font-family="Inter, sans-serif">IoT · AI · LoRa 솔루션</text>
+  </g>
+</svg>
