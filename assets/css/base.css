@@ -240,6 +240,7 @@ img   { display: block; max-width: 100%; }
   .policy-wrap { padding: 60px 24px 80px; }
   .policy__block { padding: 24px 20px; }
 }
+<<<<<<< HEAD
 
 
 /* ════════════════════════════════════════
@@ -441,3 +442,5 @@ img   { display: block; max-width: 100%; }
   .contact-form-wrap { padding: 28px 20px; }
   .contact-info { grid-template-columns: 1fr; }
 }
+=======
+>>>>>>> parent of 4956e3d (dddd)
