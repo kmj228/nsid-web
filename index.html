@@ -22,7 +22,14 @@
 <body>
 
 <!-- 페이지 전환 커튼 -->
-<div class="page-curtain" id="pageCurtain"></div>
+<div class="page-curtain" id="pageCurtain">
+  <div class="page-spinner" id="pageSpinner">
+    <div class="page-spinner__ring"></div>
+    <div class="page-spinner__dots">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</div>
 
 <!-- ══ HEADER ══ -->
 <header class="header" id="header">
@@ -1032,6 +1039,17 @@
 
 </main>
 
+<!-- ══ 경고 토스트 ══ -->
+<div class="warn-toast" id="warnToast">
+  <div class="warn-toast__icon">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  </div>
+  <span class="warn-toast__msg" id="warnToastMsg"></span>
+  <button class="warn-toast__close" onclick="closeWarnToast()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+</div>
+
 <!-- ══ 문의 전송 완료 팝업 ══ -->
 <div class="send-modal" id="sendModal">
   <div class="send-modal__backdrop" onclick="closeSendModal()"></div>
@@ -1148,7 +1166,7 @@
       });
     }
     // 입력 시 에러 해제 (새 cf- 클래스 대응)
-    ['fName','fTel','fType','fTitle','fContent'].forEach(id => {
+    ['fName','fTel','fEmail','fType','fTitle','fContent'].forEach(id => {
       const el2 = document.getElementById(id);
       if (el2) el2.addEventListener('input', () => {
         el2.classList.remove('cf-input--error');
@@ -1206,30 +1224,56 @@
   });
 
   /* ── 유효성 검사 ── */
+  function setFieldError(el, msg) {
+    el.classList.add('cf-input--error');
+    const existing = el.closest('.cf-field')?.querySelector('.cf-error');
+    if (!existing) {
+      const span = document.createElement('span');
+      span.className = 'cf-error';
+      span.textContent = msg;
+      el.closest('.cf-field')?.appendChild(span);
+    }
+  }
+
   function validateForm() {
-    const fields = [
+    document.querySelectorAll('.cf-error').forEach(e => e.remove());
+    document.querySelectorAll('.cf-input--error').forEach(e => e.classList.remove('cf-input--error'));
+    let firstError = null;
+
+    const required = [
       { id: 'fName',    label: '작성자' },
       { id: 'fTel',     label: '연락처' },
-      { id: 'fType',    label: '문의 유형' },
+      { id: 'fType',    label: '문의 유형', msg: '유형을 선택해주세요.' },
       { id: 'fTitle',   label: '제목' },
       { id: 'fContent', label: '문의 내용' },
     ];
-    document.querySelectorAll('.cf-error').forEach(el => el.remove());
-    document.querySelectorAll('.cf-input--error').forEach(el => el.classList.remove('cf-input--error'));
-    let firstError = null;
-    fields.forEach(({ id, label }) => {
+
+    required.forEach(({ id, label, msg }) => {
       const el = document.getElementById(id);
-      if (!el) return;
-      if (!el.value.trim()) {
-        el.classList.add('cf-input--error');
-        const msg = document.createElement('span');
-        msg.className = 'cf-error';
-        msg.textContent = label + '을(를) 입력해주세요.';
-        const parent = el.closest('.cf-field') || el.closest('.contact-form__field');
-        if (parent) parent.appendChild(msg);
-        if (!firstError) firstError = el;
-      }
+      if (!el || el.value.trim()) return;
+      setFieldError(el, msg || label + '을(를) 입력해주세요.');
+      if (!firstError) firstError = el;
     });
+
+    /* 연락처 형식: 숫자·하이픈만, 최소 9자리 */
+    const tel = document.getElementById('fTel');
+    if (tel && tel.value.trim()) {
+      const telClean = tel.value.replace(/-/g, '');
+      if (!/^\d{9,11}$/.test(telClean)) {
+        setFieldError(tel, '올바른 연락처 형식을 입력해주세요. (예: 010-0000-0000)');
+        if (!firstError) firstError = tel;
+      }
+    }
+
+    /* 이메일 형식: @ 포함, 도메인 포함 */
+    const email = document.getElementById('fEmail');
+    if (email && email.value.trim()) {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        setFieldError(email, '올바른 이메일 형식을 입력해주세요. (예: example@domain.com)');
+        if (!firstError) firstError = email;
+      }
+    }
+
     if (firstError) {
       firstError.focus();
       firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1247,6 +1291,19 @@
   function closeSendModal() {
     const modal = document.getElementById('sendModal');
     if (modal) { modal.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+
+  /* ── 경고 토스트 ── */
+  let warnTimer = null;
+  function showWarnToast(msg) {
+    const toast = document.getElementById('warnToast');
+    document.getElementById('warnToastMsg').textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(warnTimer);
+    warnTimer = setTimeout(() => closeWarnToast(), 4000);
+  }
+  function closeWarnToast() {
+    document.getElementById('warnToast')?.classList.remove('show');
   }
 
   /* 모달 열기 */
@@ -1301,7 +1358,10 @@
     const remaining = 3 - attachedFiles.length;
 
     if (files.length > remaining) {
-      alert('파일은 최대 3개까지만 첨부할 수 있습니다.\n현재 ' + attachedFiles.length + '개 첨부됨 (추가 가능: ' + remaining + '개)');
+      const msg = remaining === 0
+        ? '이미 최대 3개의 파일이 첨부되어 있습니다.'
+        : '파일은 최대 3개까지 첨부할 수 있습니다. (추가 가능: ' + remaining + '개)';
+      showWarnToast(msg);
       input.value = '';
       return;
     }

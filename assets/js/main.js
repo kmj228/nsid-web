@@ -35,10 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. 커튼 올리기
     curtain.classList.add('show');
 
-    // 2. 커튼이 완전히 덮인 후에 (transitionend) 페이지 전환
-    const onCover = () => {
-      curtain.removeEventListener('transitionend', onCover);
-
+    // 2. 커튼 fade-in 완료(200ms) 후 페이지 전환, 스피너 최소 노출(280ms) 후 커튼 내리기
+    setTimeout(() => {
       window.scrollTo(0, 0);
 
       pages.forEach(p => p.classList.remove('active'));
@@ -51,19 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.classList.remove('open');
       hamburger.classList.remove('open');
 
-      // 3. 다음 프레임에 커튼 내리기
-      requestAnimationFrame(() => {
+      setTimeout(() => {
         curtain.classList.remove('show');
         observeFadeUps();
         if (tabId === 'home') initCounters();
-      });
-    };
+      }, 280);
 
-    curtain.addEventListener('transitionend', onCover);
+    }, 220);
 
     if (subId) {
       const sub = document.getElementById('sub-' + subId);
-      if (sub) setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+      if (sub) setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 600);
     }
   }
 

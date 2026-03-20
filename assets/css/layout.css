@@ -8,18 +8,19 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--header-h);
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--gray-200);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(221, 228, 238, 0.8);
   z-index: 1000;
-  transition: box-shadow var(--ease);
+  transition: box-shadow var(--ease), background var(--ease);
   will-change: transform;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
 }
 .header.scrolled {
-  box-shadow: 0 2px 20px rgba(13, 33, 71, 0.10);
+  box-shadow: 0 2px 24px rgba(11, 31, 69, 0.09), 0 1px 4px rgba(11, 31, 69, 0.05);
+  background: rgba(255, 255, 255, 0.98);
 }
 
 .header__inner {
@@ -100,10 +101,28 @@
   display: block;
   transition: color var(--ease), background var(--ease);
 }
-.nav__link:hover,
-.nav__link.active {
+.nav__link:hover {
   color: var(--navy);
   background: var(--blue-soft);
+}
+.nav__link.active {
+  color: var(--navy);
+  background: linear-gradient(135deg, var(--blue-soft) 0%, #E0ECFF 100%);
+  position: relative;
+}
+/* 활성 탭 아래 블루 라인 인디케이터 */
+.nav__link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 50%; right: 50%;
+  height: 2px;
+  background: var(--blue);
+  border-radius: 2px;
+  animation: navUnderline 0.25s ease forwards;
+}
+@keyframes navUnderline {
+  from { left: 50%; right: 50%; opacity: 0; }
+  to   { left: 14px; right: 14px; opacity: 1; }
 }
 
 /* 드롭다운 */
@@ -147,7 +166,7 @@
 /* CTA 버튼 */
 .header__cta {
   flex-shrink: 0;
-  background: var(--navy);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
   color: var(--white);
   font-family: var(--font-en);
   font-size: 13px; font-weight: 600;
@@ -155,11 +174,12 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background var(--ease), transform var(--ease), box-shadow var(--ease);
+  box-shadow: 0 2px 8px rgba(11, 31, 69, 0.18);
 }
 .header__cta:hover {
-  background: var(--navy-light);
+  background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(13, 33, 71, 0.2);
+  box-shadow: 0 6px 20px rgba(11, 31, 69, 0.24);
 }
 
 /* 햄버거 */
@@ -183,8 +203,9 @@
 
 /* ── Footer ── */
 .footer {
-  background: var(--navy);
+  background: linear-gradient(160deg, #09183E 0%, #0B1F45 60%, #0E2550 100%);
   padding: 56px 0 32px;
+  border-top: 1px solid rgba(255,255,255,0.04);
 }
 .footer__inner {
   max-width: 1360px;
