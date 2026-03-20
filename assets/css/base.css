@@ -274,10 +274,9 @@ img   { display: block; max-width: 100%; }
 }
 
 .contact-body {
-  display: grid;
-  grid-template-columns: 1fr 340px;
+  display: flex;
+  flex-direction: column;
   gap: 32px;
-  align-items: start;
 }
 
 /* ── 폼 ── */
@@ -355,10 +354,13 @@ img   { display: block; max-width: 100%; }
 /* ── 담당자 정보 ── */
 .contact-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 12px;
 }
 .contact-info__card {
+  flex: 1;
+  min-width: 180px;
   background: var(--gray-50);
   border: 1px solid var(--gray-200);
   border-radius: 14px;
@@ -398,28 +400,29 @@ img   { display: block; max-width: 100%; }
 a.contact-info__value:hover { color: var(--blue); }
 
 .contact-info__hours {
-  background: var(--navy);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--navy-light) 100%);
   border-radius: 14px;
   padding: 20px;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.9);
   font-size: 13px;
   line-height: 1.8;
+  flex: 1;
+  min-width: 180px;
 }
 .contact-info__hours-title {
   font-size: 12px;
   font-weight: 700;
-  color: var(--blue);
+  color: #fff;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
 
-/* ── 반응형 ── */
-@media (max-width: 900px) {
-  .contact-body { grid-template-columns: 1fr; }
-}
+/* 반응형 */
 @media (max-width: 600px) {
   .contact-wrap { padding: 60px 24px 80px; }
   .contact-form-wrap { padding: 28px 24px; }
   .contact-form__row { grid-template-columns: 1fr; }
+  .contact-info__card,
+  .contact-info__hours { min-width: 100%; flex: 100%; }
 }
