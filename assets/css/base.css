@@ -146,56 +146,11 @@ img   { display: block; max-width: 100%; }
   z-index: 9998;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: opacity 0.15s ease;
 }
 .page-curtain.show {
   opacity: 1;
   pointer-events: all;
-}
-
-/* ── 로딩 스피너 ── */
-.page-spinner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  opacity: 0;
-  transform: scale(0.88);
-  transition: opacity 0.18s ease 0.08s, transform 0.18s ease 0.08s;
-}
-.page-curtain.show .page-spinner {
-  opacity: 1;
-  transform: scale(1);
-}
-.page-spinner__ring {
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  border: 3px solid var(--gray-100);
-  border-top-color: var(--blue);
-  animation: spinnerRing 0.72s linear infinite;
-}
-@keyframes spinnerRing {
-  to { transform: rotate(360deg); }
-}
-.page-spinner__dots {
-  display: flex;
-  gap: 6px;
-}
-.page-spinner__dots span {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--gray-200);
-  animation: spinnerDot 1.2s ease-in-out infinite;
-}
-.page-spinner__dots span:nth-child(1) { animation-delay: 0s;   background: var(--blue); }
-.page-spinner__dots span:nth-child(2) { animation-delay: 0.18s; }
-.page-spinner__dots span:nth-child(3) { animation-delay: 0.36s; }
-@keyframes spinnerDot {
-  0%, 80%, 100% { transform: scale(0.55); opacity: 0.35; }
-  40%            { transform: scale(1.0);  opacity: 1; }
 }
 
 /* ── 빈 페이지 (BUSINESS / CONTACT 준비 중) ── */
@@ -431,7 +386,7 @@ img   { display: block; max-width: 100%; }
    CONTACT US 페이지
 ════════════════════════════════════════ */
 .contact-wrap {
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 80px 40px 120px;
 }
@@ -756,7 +711,7 @@ img   { display: block; max-width: 100%; }
 /* ── 사이드바 레이아웃 ── */
 .contact-layout {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 0;
   align-items: start;
   border: 1px solid var(--gray-200);
@@ -779,7 +734,7 @@ img   { display: block; max-width: 100%; }
   flex-direction: column;
 }
 .csb__inner {
-  padding: 40px 28px;
+  padding: 40px 32px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -868,9 +823,10 @@ img   { display: block; max-width: 100%; }
   background: rgba(59,130,246,0.15);
   border: 1px solid rgba(59,130,246,0.25);
   border-radius: 12px;
-  font-size: 13px;
+  font-size: 13.5px;
   color: rgba(255,255,255,0.65);
-  line-height: 1.75;
+  line-height: 1.7;
+  word-break: keep-all;
 }
 .csb__note strong {
   color: #93C5FD;

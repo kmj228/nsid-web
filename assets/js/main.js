@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── 탭 전환 ─────────────────────────── */
   function showTab(tabId, subId = null) {
 
-    // 같은 탭이면 부드럽게 위로
     if (tabId === currentTab && !subId) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -32,10 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const target = document.getElementById('page-' + tabId);
     if (!target) return;
 
-    // 1. 커튼 올리기
     curtain.classList.add('show');
 
-    // 2. 커튼 fade-in 완료(200ms) 후 페이지 전환, 스피너 최소 노출(280ms) 후 커튼 내리기
     setTimeout(() => {
       window.scrollTo(0, 0);
 
@@ -49,17 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.classList.remove('open');
       hamburger.classList.remove('open');
 
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         curtain.classList.remove('show');
         observeFadeUps();
         if (tabId === 'home') initCounters();
-      }, 280);
-
-    }, 220);
+        updateBackToTop();
+      });
+    }, 100);
 
     if (subId) {
       const sub = document.getElementById('sub-' + subId);
-      if (sub) setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 600);
+      if (sub) setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 250);
     }
   }
 
@@ -77,6 +74,19 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
+
+  /* ── Back to Top ─────────────────────── */
+  const backToTopEl = document.getElementById('backToTop');
+
+  function updateBackToTop() {
+    if (!backToTopEl) return;
+    backToTopEl.classList.toggle('visible', window.scrollY > 300);
+  }
+
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  backToTopEl?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   /* ── 모바일 햄버거 ───────────────────── */
   hamburger.addEventListener('click', () => {
@@ -129,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   observeFadeUps();
   initTilt();
+  updateBackToTop();
 
   // URL 해시로 초기 탭 결정
   const hash = window.location.hash.replace('#', '');
