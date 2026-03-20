@@ -17,7 +17,9 @@ export function observeFadeUps() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        fadeIO.unobserve(entry.target);
+      } else {
+        // 뷰포트 밖으로 나가면 다시 숨기기 → 다음 진입 시 재애니메이션
+        entry.target.classList.remove('visible');
       }
     });
   }, {
@@ -25,7 +27,7 @@ export function observeFadeUps() {
     rootMargin: '0px 0px -40px 0px',
   });
 
-  document.querySelectorAll('.fade-up:not(.visible)')
+  document.querySelectorAll('.fade-up')
           .forEach(el => fadeIO.observe(el));
 }
 
