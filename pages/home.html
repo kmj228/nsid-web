@@ -1,0 +1,259 @@
+<section class="page" id="page-home">
+
+    <!-- 히어로 슬라이더 -->
+    <div class="hero">
+      <div class="hero__slides" id="heroSlides">
+        <div class="hero__slide active" style="background-image:url('img/banner1.jpg')"></div>
+        <div class="hero__slide"        style="background-image:url('img/banner2.jpg')"></div>
+        <div class="hero__slide"        style="background-image:url('img/banner3.jpg')"></div>
+      </div>
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <span class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          IoT Total Service
+        </span>
+        <h1 class="hero__title">
+          <span class="hero__title-line">스마트 사회를 위한</span>
+          <span class="hero__title-line hero__title-line--accent"><em>IoT 통합 솔루션</em></span>
+        </h1>
+        <p class="hero__desc">
+          엔시드는 다년간의 CCTV 통합관리시스템 구축과 IoT 솔루션 제공 경험을 바탕으로
+          고객의 비즈니스 환경에 최적화된 Total 서비스를 제공하는 전문 기업입니다.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" data-tab="business">
+            사업분야 보기
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn--outline" data-tab="contact">견적 문의하기</a>
+        </div>
+      </div>
+
+      <div class="hero__controls">
+        <button class="hero__prev" id="heroPrev" aria-label="이전">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="hero__dots" id="heroDots">
+          <span class="hero__dot active"></span>
+          <span class="hero__dot"></span>
+          <span class="hero__dot"></span>
+        </div>
+        <button class="hero__next" id="heroNext" aria-label="다음">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <div class="hero__scroll">
+        <span>SCROLL</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </div>
+
+    <!-- 통계 카운터 -->
+    <div class="stats">
+      <div class="stats__inner">
+        <div class="stats__item fade-up">
+          <div class="stats__num-wrap">
+            <span class="stats__number" data-target="10">0</span><span class="stats__suffix">년+</span>
+          </div>
+          <p class="stats__label">업력</p>
+        </div>
+        <div class="stats__item fade-up" style="--delay:80ms">
+          <div class="stats__num-wrap">
+            <span class="stats__number" data-target="30">0</span><span class="stats__suffix">개+</span>
+          </div>
+          <p class="stats__label">주요 고객사 · 협력사</p>
+        </div>
+        <div class="stats__item fade-up" style="--delay:160ms">
+          <div class="stats__num-wrap">
+            <span class="stats__number" data-target="8">0</span><span class="stats__suffix">건+</span>
+          </div>
+          <p class="stats__label">인증 · 특허</p>
+        </div>
+        <div class="stats__item fade-up" style="--delay:240ms">
+          <div class="stats__num-wrap">
+            <span class="stats__number" data-target="8">0</span><span class="stats__suffix">종</span>
+          </div>
+          <p class="stats__label">보유 제품</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 사업분야 -->
+    <div class="sec sec--gray">
+      <div class="sec__head fade-up">
+        <span class="sec__tag">BUSINESS</span>
+        <h2 class="sec__title">사업분야</h2>
+        <p class="sec__desc">시스템 통합부터 IoT R&amp;D까지,<br/>고객 맞춤형 IT 서비스를 제공합니다</p>
+      </div>
+      <div class="sec__body">
+        <!-- HTML/CSS 다이어그램 -->
+        <div class="biz-cards">
+          <div class="biz-cards__item fade-up" style="--delay:0ms">
+            <div class="biz-cards__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="9" height="9" rx="2"/><rect x="13" y="2" width="9" height="9" rx="2"/><rect x="2" y="13" width="9" height="9" rx="2"/><rect x="13" y="13" width="9" height="9" rx="2"/></svg>
+            </div>
+            <h4>시스템 통합</h4>
+            <p>H/W · S/W · N/W 통합 구축<br/>검증된 방법론 기반 시스템 통합<br/>고객사 맞춤형 IT 인프라 설계</p>
+          </div>
+          <div class="biz-cards__item fade-up" style="--delay:60ms">
+            <div class="biz-cards__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4>컨설팅 서비스</h4>
+            <p>공공·정부기관 및 기업 대상<br/>자체 방법론 기반 IT 전략 수립<br/>고객 밀착형 비즈니스 프로세스 지원</p>
+          </div>
+          <div class="biz-cards__item fade-up" style="--delay:120ms">
+            <div class="biz-cards__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h4>유지관리</h4>
+            <p>시스템 운영 및 유지보수<br/>장애처리 · AS · 기술지원<br/>신기술 적용 서비스 지원</p>
+          </div>
+          <div class="biz-cards__item fade-up" style="--delay:180ms">
+            <div class="biz-cards__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h4>R&amp;D 개발</h4>
+            <p>IoT 단말 제품 개발<br/>LoRa · AI · 스마트 IoT 연구<br/>신규 플랫폼 개발 및 상용화</p>
+          </div>
+          <div class="biz-cards__item fade-up" style="--delay:240ms">
+            <div class="biz-cards__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <h4>H/W · S/W 판매</h4>
+            <p>최적 구성 하드웨어 공급<br/>소프트웨어 라이선스 제공<br/>고객 생산성 극대화 솔루션</p>
+          </div>
+        </div>
+        <div class="sec__cta">
+          <a class="btn btn--ghost" data-tab="business" data-sub="businessarea">사업분야 자세히 보기</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 주요 제품 -->
+    <div class="sec sec--white">
+      <div class="sec__head fade-up">
+        <span class="sec__tag">PRODUCT</span>
+        <h2 class="sec__title">주요 제품</h2>
+        <p class="sec__desc">공공안전과 스마트 인프라를 위한<br/>엔시드의 핵심 제품라인</p>
+      </div>
+      <div class="sec__body">
+        <div class="product-grid">
+          <div class="product-card product-card--featured fade-up" style="--delay:0ms">
+            <div class="product-card__bg" style="background-image:url('img/product1.jpg')"></div>
+            <div class="product-card__badge">대표 제품</div>
+            <div class="product-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>함체관리시스템<br/><em>NS-FMMS</em></h3>
+            <p>GIS 기반 CCTV 시설물 통합관리 솔루션. 실시간 원격 모니터링 및 인가된 사용자 함체 개폐 제어</p>
+            <span class="product-card__tag">GS인증</span>
+          </div>
+          <div class="product-card fade-up" style="--delay:60ms">
+            <div class="product-card__bg" style="background-image:url('img/product2.jpg')"></div>
+            <div class="product-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>지능형 소화전<br/><em>IFS</em></h3>
+            <p>IoT 기술 기반 소화전 실시간 상태 관리 및 불법 주정차 방지 시스템</p>
+            <span class="product-card__tag">특허 보유</span>
+          </div>
+          <div class="product-card fade-up" style="--delay:120ms">
+            <div class="product-card__bg" style="background-image:url('img/product3.jpg')"></div>
+            <div class="product-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>영상기기 관제<br/><em>IoT-X</em></h3>
+            <p>DVR/NVR · CCTV 연동 원격 장애관리 및 실시간 상태 모니터링 시스템</p>
+            <span class="product-card__tag">IoT 연동</span>
+          </div>
+          <div class="product-card fade-up" style="--delay:180ms">
+            <div class="product-card__bg" style="background-image:url('img/product4.jpg')"></div>
+            <div class="product-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>CCTV 마스킹<br/>시스템</h3>
+            <p>영상정보 열람·반출 시 개인정보 보호를 위한 모자이크 및 반출 보안 처리</p>
+            <span class="product-card__tag">보안 솔루션</span>
+          </div>
+          <div class="product-card fade-up" style="--delay:240ms">
+            <div class="product-card__bg" style="background-image:url('img/product5.jpg')"></div>
+            <div class="product-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+            </div>
+            <h3>패스워드<br/>솔루션</h3>
+            <p>시스템 패스워드 관리 규제지침 준수를 위한 비밀번호 발급·관리 보안 솔루션</p>
+            <span class="product-card__tag">보안 인증</span>
+          </div>
+          <div class="product-card fade-up" style="--delay:300ms">
+            <div class="product-card__bg" style="background-image:url('img/product6.jpg')"></div>
+            <div class="product-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3>SERVER</h3>
+            <p>고객의 경제성을 고려한 최적 구성의 안전성·유연성 갖춘 고성능 서버</p>
+            <span class="product-card__tag">고성능</span>
+          </div>
+        </div>
+        <div class="sec__cta">
+          <a class="btn btn--ghost" data-tab="product">주요 제품 자세히 보기</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 주요 소식 -->
+    <div class="sec sec--news-light">
+      <div class="sec__head fade-up">
+        <span class="sec__tag">NEWS</span>
+        <h2 class="sec__title">주요 소식</h2>
+        <p class="sec__desc">엔시드의 최신 소식과 성과를 전달합니다</p>
+      </div>
+      <div class="sec__body">
+        <div class="news-grid">
+          <a class="news-card fade-up" style="--delay:0ms"
+             href="https://www.donga.com/news/article/all/20230314/118314487/1"
+             target="_blank" rel="noopener">
+            <div class="news-card__inner">
+              <span class="news-card__date">2023. 03. 14</span>
+              <h4>지능형 소화전으로 불법 주정차 막는다</h4>
+              <p>서울소방본부와 함께 진행한 지능형 소화전 관리시스템 구축을 완료하고 서울시 전체로 확대 추진 예정</p>
+              <span class="news-card__source">
+                동아일보
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </span>
+            </div>
+          </a>
+          <a class="news-card fade-up" style="--delay:80ms"
+             href="http://www.enewstoday.co.kr"
+             target="_blank" rel="noopener">
+            <div class="news-card__inner">
+              <span class="news-card__date">2023. 02. 20</span>
+              <h4>서울소방재난본부와 IoT 소화전 시범사업 진행</h4>
+              <p>종로 창신·부암동 일대 소화전 관리시스템 구축. 불법 주정차 차단 및 소화용수 실시간 원격 모니터링</p>
+              <span class="news-card__source">
+                이뉴스투데이
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </span>
+            </div>
+          </a>
+          <a class="news-card fade-up" style="--delay:160ms"
+             href="http://www.koit.co.kr/news/articleView.html?idxno=87681"
+             target="_blank" rel="noopener">
+            <div class="news-card__inner">
+              <span class="news-card__date">2023. 02. 20</span>
+              <h4>CCTV 스마트함체 관리시스템으로 선두기업 발돋움</h4>
+              <p>전국 지자체 공공기관 납품을 통해 제품의 우수성을 인정받으며 원격관리 분야 선두주자로 자리매김</p>
+              <span class="news-card__source">
+                정보통신신문
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>

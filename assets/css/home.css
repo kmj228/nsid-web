@@ -75,10 +75,10 @@
 .hero__overlay {
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(
-    140deg,
-    rgba(8, 24, 60, 0.92) 0%,
-    rgba(11, 31, 69, 0.70) 50%,
-    rgba(11, 31, 69, 0.38) 100%
+    135deg,
+    rgba(10, 29, 63, 0.88) 0%,
+    rgba(13, 33, 71, 0.62) 55%,
+    rgba(13, 33, 71, 0.36) 100%
   );
 }
 
@@ -97,10 +97,8 @@
   font-family: var(--font-en);
   font-size: 11px; font-weight: 600;
   letter-spacing: 3px;
-  color: #93C5FD;
-  border: 1px solid rgba(59, 130, 246, 0.30);
-  background: rgba(59, 130, 246, 0.08);
-  backdrop-filter: blur(8px);
+  color: var(--blue);
+  border: 1px solid rgba(59, 130, 246, 0.35);
   padding: 7px 18px;
   border-radius: 100px;
   margin-bottom: 36px;
@@ -222,7 +220,7 @@
    STATS
 ════════════════════════════════════════ */
 .stats {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F7F9FC 100%);
+  background: var(--white);
   border-bottom: 1px solid var(--gray-200);
 }
 .stats__inner {
@@ -269,186 +267,57 @@
 }
 
 /* ════════════════════════════════════════
-   사업분야 HTML/CSS 다이어그램
+   사업분야 — 5카드 그리드
 ════════════════════════════════════════ */
-.biz-diagram {
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
+.biz-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
 }
-
-/* 상단·하단 행 */
-.biz-diagram__row {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  width: 100%;
-  max-width: 1100px;  /* 820 → 1100 */
-}
-.biz-diagram__row--bottom {
-  align-items: flex-start;
-}
-
-/* 개별 노드 카드 */
-.biz-diagram__node {
-  flex: 1;
-  max-width: 380px;   /* 320 → 380 */
-  background: var(--gray-50);
+.biz-cards__item {
+  background: var(--white);
   border: 1px solid var(--gray-200);
-  border-radius: 14px;
-  padding: 28px 24px; /* 24px 20px → 28px 24px */
+  border-radius: var(--radius);
+  padding: 36px 24px 32px;
   text-align: center;
   transition: all var(--ease);
+  cursor: default;
 }
-.biz-diagram__node:hover {
+.biz-cards__item:hover {
   border-color: var(--blue);
-  background: var(--white);
   box-shadow: var(--shadow);
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
-/* R&D 강조 제거 — 다른 노드와 동일하게 */
-
-.biz-diagram__icon {
-  width: 48px; height: 48px;   /* 44 → 48 */
-  background: var(--blue-soft);
-  border-radius: 11px;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--navy-light);
-  margin: 0 auto 14px;
-  transition: background var(--ease), color var(--ease);
-}
-
-/* 모든 노드 호버 시 아이콘 파란색 (R&D 포함) */
-.biz-diagram__node:hover .biz-diagram__icon {
+.biz-cards__item:hover .biz-cards__icon {
   background: var(--blue);
   color: var(--white);
 }
-.biz-diagram__node h4 {
-  font-size: 14px; font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 6px;
+.biz-cards__icon {
+  width: 56px; height: 56px;
+  background: var(--blue-soft);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy-light);
+  margin: 0 auto 20px;
+  transition: background var(--ease), color var(--ease);
 }
-.biz-diagram__node p {
-  font-size: 12px;
-  color: var(--gray-400);
-  line-height: 1.6;
+.biz-cards__item h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--gray-100);
+}
+.biz-cards__item p {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.85;
   word-break: keep-all;
 }
-
-/* 중앙 허브 영역 */
-.biz-diagram__mid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  width: 100%;
-  max-width: 1100px;  /* 820 → 1100 */
-  position: relative;
-  height: 90px;       /* 80 → 90 */
-}
-
-/* 연결선 */
-.biz-diagram__line {
-  flex: 1;
-  height: 1.5px;
-  background: linear-gradient(to right, transparent, #CBD5E1);
-  position: relative;
-}
-.biz-diagram__line--top-right,
-.biz-diagram__line--bottom-right {
-  background: linear-gradient(to left, transparent, #CBD5E1);
-}
-/* 점선 스타일 */
-.biz-diagram__line {
-  background: none;
-  border-top: 1.5px dashed #CBD5E1;
-}
-
-/* 패킷 애니메이션 — 허브에서 출발 → 각 노드 방향으로 사라짐 */
-.biz-diagram__line::after {
-  content: '';
-  position: absolute;
-  top: -3px;
-  width: 7px; height: 7px;
-  background: var(--blue);
-  border-radius: 50%;
-  opacity: 0;
-}
-
-/* 허브 왼쪽 2개 선: right:0(허브) → 왼쪽 노드로 */
-.biz-diagram__line--top-left::after {
-  right: 0; left: auto;
-  animation: packetToLeft 2.4s linear infinite 0s;
-}
-.biz-diagram__line--top-right::after {
-  right: 0; left: auto;
-  animation: packetToLeft 2.4s linear infinite 1.2s;
-}
-
-/* 허브 오른쪽 2개 선: left:0(허브) → 오른쪽 노드로 */
-.biz-diagram__line--bottom-left::after {
-  left: 0; right: auto;
-  animation: packetToRight 2.4s linear infinite 0.6s;
-}
-.biz-diagram__line--bottom-right::after {
-  left: 0; right: auto;
-  animation: packetToRight 2.4s linear infinite 1.8s;
-}
-
-@keyframes packetToLeft {
-  0%   { right: 0%;   opacity: 0; }
-  5%   { opacity: 0.9; }
-  95%  { opacity: 0.9; }
-  100% { right: 100%; opacity: 0; }
-}
-
-@keyframes packetToRight {
-  0%   { left: 0%;   opacity: 0; }
-  5%   { opacity: 0.9; }
-  95%  { opacity: 0.9; }
-  100% { left: 100%; opacity: 0; }
-}
-
-/* 허브 원형 */
-.biz-diagram__hub {
-  flex-shrink: 0;
-  width: 80px; height: 80px;
-  background: var(--navy);
-  border-radius: 50%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 4px;
-  position: relative;
-  box-shadow: 0 8px 32px rgba(13,33,71,0.25);
-  z-index: 1;
-}
-.biz-diagram__hub-ring {
-  position: absolute; inset: -6px;
-  border-radius: 50%;
-  border: 1.5px dashed rgba(59,130,246,0.4);
-  animation: spin 16s linear infinite;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-.biz-diagram__hub span {
-  font-family: var(--font-en);
-  font-size: 9px; font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #60A5FA;
-}
-
-/* ── 반응형 ── */
-@media (max-width: 680px) {
-  .biz-diagram { padding: 32px 20px; }
-  .biz-diagram__row { flex-direction: column; align-items: center; }
-  .biz-diagram__node { max-width: 100%; width: 100%; }
-  .biz-diagram__mid  { height: 60px; }
-  .biz-diagram__hub  { width: 60px; height: 60px; }
-}
+@media (max-width: 1100px) { .biz-cards { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width:  680px) { .biz-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:  420px) { .biz-cards { grid-template-columns: 1fr; } }
 
 /* ── 사업 카드 ── */
 .biz-grid {
@@ -557,7 +426,8 @@
   overflow: hidden;
   transition: all var(--ease);
   cursor: default;
-  transform-style: preserve-3d;
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .product-card:hover {
   border-color: var(--navy-light);
@@ -567,9 +437,8 @@
 
 /* 대표 제품 */
 .product-card--featured {
-  background: linear-gradient(145deg, var(--navy) 0%, #142952 60%, var(--navy-mid) 100%);
-  border-color: transparent;
-  box-shadow: 0 8px 32px rgba(11, 31, 69, 0.22);
+  background: var(--navy);
+  border-color: var(--navy);
 }
 .product-card--featured .product-card__icon {
   background: rgba(96, 165, 250, 0.2);

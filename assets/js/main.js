@@ -1,43 +1,87 @@
 /* ══════════════════════════════════════════
    assets/js/main.js
-   탭 전환 · 햄버거 · 헤더 스크롤 · 초기화
+   탭 전환 (fetch lazy load) · 햄버거 · 헤더 · 초기화
+   + 페이지 진행 바 · Back to Top
 ══════════════════════════════════════════ */
 
-import { initSlider }      from './slider.js';
-import { initCounters }    from './counter.js';
+import { initSlider }               from './slider.js';
+import { initCounters }             from './counter.js';
 import { observeFadeUps, initTilt } from './animations.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const header    = document.getElementById('header');
-  const hamburger = document.getElementById('hamburger');
-  const nav       = document.getElementById('nav');
-  const pages     = document.querySelectorAll('.page');
+  const header      = document.getElementById('header');
+  const hamburger   = document.getElementById('hamburger');
+  const nav         = document.getElementById('nav');
+  const mainEl      = document.getElementById('mainContent');
+  const progressBar = document.getElementById('pageProgressBar');
 
-  /* ── 현재 활성 탭 추적 ── */
-  let currentTab = 'home';
-  const curtain = document.getElementById('pageCurtain');
+  let currentTab = null;
+  const pageCache = {};       // 로드된 페이지 HTML 캐시
 
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
-  /* ── 탭 전환 ─────────────────────────── */
-  function showTab(tabId, subId = null) {
+  /* ════════════════════════════════════════
+     페이지 전환 진행 바
+  ════════════════════════════════════════ */
+  function runProgress(callback) {
+    if (!progressBar) { callback(); return; }
+    progressBar.style.transition = 'none';
+    progressBar.style.width      = '0%';
+    progressBar.style.opacity    = '1';
+
+    requestAnimationFrame(() => {
+      progressBar.style.transition = 'width 0.15s ease';
+      progressBar.style.width = '40%';
+      setTimeout(() => {
+        progressBar.style.width = '75%';
+        setTimeout(() => {
+          callback();
+          progressBar.style.width = '100%';
+          setTimeout(() => {
+            progressBar.style.opacity = '0';
+            setTimeout(() => {
+              progressBar.style.transition = 'none';
+              progressBar.style.width = '0%';
+            }, 300);
+          }, 120);
+        }, 100);
+      }, 100);
+    });
+  }
+
+  /* ════════════════════════════════════════
+     페이지 fetch + 캐시
+  ════════════════════════════════════════ */
+  async function loadPage(tabId) {
+    if (pageCache[tabId]) return pageCache[tabId];
+    try {
+      const res = await fetch(`pages/${tabId}.html`);
+      if (!res.ok) throw new Error(`${tabId} not found`);
+      const html = await res.text();
+      pageCache[tabId] = html;
+      return html;
+    } catch (e) {
+      console.warn('Page load failed:', e);
+      return `<section class="page" id="page-${tabId}"><div class="empty-page"><h2 class="empty-page__title">${tabId.toUpperCase()}</h2></div></section>`;
+    }
+  }
+
+  /* ════════════════════════════════════════
+     탭 전환
+  ════════════════════════════════════════ */
+  async function showTab(tabId, subId = null) {
 
     if (tabId === currentTab && !subId) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
-    const target = document.getElementById('page-' + tabId);
-    if (!target) return;
+    runProgress(async () => {
+      const html = await loadPage(tabId);
 
-    curtain.classList.add('show');
-
-    setTimeout(() => {
       window.scrollTo(0, 0);
-
-      pages.forEach(p => p.classList.remove('active'));
-      target.classList.add('active');
+      mainEl.innerHTML = html;
       currentTab = tabId;
 
       document.querySelectorAll('.nav__link').forEach(link =>
@@ -46,49 +90,77 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.classList.remove('open');
       hamburger.classList.remove('open');
 
-      requestAnimationFrame(() => {
-        curtain.classList.remove('show');
-        observeFadeUps();
-        if (tabId === 'home') initCounters();
-        updateBackToTop();
-      });
-    }, 100);
+      // data-tab 링크 재바인딩 (새로 삽입된 DOM)
+      bindTabLinks();
 
-    if (subId) {
-      const sub = document.getElementById('sub-' + subId);
-      if (sub) setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 250);
-    }
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          observeFadeUps();
+          if (tabId === 'home') {
+            initSlider();
+            initCounters();
+            initTilt();
+          }
+          if (tabId === 'business') initSubNav();
+          if (tabId === 'contact' && typeof initContact === 'function') initContact();
+          updateBackToTop();
+        });
+      });
+
+      if (subId) {
+        setTimeout(() => {
+          const sub = document.getElementById('sub-' + subId);
+          if (sub) sub.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }
+    });
   }
 
   window.showTab = showTab;
 
-  document.querySelectorAll('[data-tab]').forEach(el => {
-    el.addEventListener('click', e => {
-      e.preventDefault();
-      e.target.blur();
-      showTab(el.dataset.tab, el.dataset.sub || null);
+  function bindTabLinks() {
+    document.querySelectorAll('[data-tab]').forEach(el => {
+      if (el.dataset.bound) return;
+      el.dataset.bound = '1';
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        e.target.blur();
+        showTab(el.dataset.tab, el.dataset.sub || null);
+      });
     });
-  });
+  }
 
-  /* ── 헤더 스크롤 그림자 ──────────────── */
+  // 헤더/푸터의 data-tab 링크 (최초 1회)
+  bindTabLinks();
+
+  /* ════════════════════════════════════════
+     헤더 스크롤 그림자
+  ════════════════════════════════════════ */
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 
-  /* ── Back to Top ─────────────────────── */
-  const backToTopEl = document.getElementById('backToTop');
+  /* ════════════════════════════════════════
+     Back to Top + 스크롤 링
+  ════════════════════════════════════════ */
+  const backToTopEl  = document.getElementById('backToTop');
+  const scrollRingEl = document.getElementById('scrollRing');
+  const CIRCUMFERENCE = 2 * Math.PI * 19;
 
   function updateBackToTop() {
     if (!backToTopEl) return;
-    backToTopEl.classList.toggle('visible', window.scrollY > 300);
+    const scrollY   = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress  = maxScroll > 0 ? Math.min(scrollY / maxScroll, 1) : 0;
+    backToTopEl.classList.toggle('visible', scrollY > 300);
+    if (scrollRingEl) scrollRingEl.style.strokeDashoffset = CIRCUMFERENCE * (1 - progress);
   }
-
   window.addEventListener('scroll', updateBackToTop, { passive: true });
-  backToTopEl?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  backToTopEl?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  /* ── 모바일 햄버거 ───────────────────── */
+  /* ════════════════════════════════════════
+     모바일 햄버거
+  ════════════════════════════════════════ */
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     nav.classList.toggle('open');
@@ -101,9 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ── BUSINESS 서브 네비 ─────────────── */
-  let subIO = null;
-
+  /* ════════════════════════════════════════
+     BUSINESS 서브 네비
+  ════════════════════════════════════════ */
   function initSubNav() {
     const subBtns = document.querySelectorAll('.sub-nav__btn');
     if (!subBtns.length) return;
@@ -117,10 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // 스크롤 시 서브네비 active 자동 갱신
     const sections = document.querySelectorAll('[id^="sub-"]');
-
-    subIO = new IntersectionObserver(entries => {
+    const subIO = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.id.replace('sub-', '');
@@ -132,21 +202,13 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(s => subIO.observe(s));
   }
 
-  initSubNav();
-
-  /* ── 초기화 ──────────────────────────── */
-  initSlider();
-  initCounters();
-  observeFadeUps();
-  initTilt();
+  /* ════════════════════════════════════════
+     초기화
+  ════════════════════════════════════════ */
   updateBackToTop();
 
-  // URL 해시로 초기 탭 결정
   const hash = window.location.hash.replace('#', '');
-  if (['home', 'product', 'business', 'contact', 'privacy', 'antiemail'].includes(hash)) {
-    showTab(hash);
-  } else {
-    showTab('home');
-  }
+  const validTabs = ['home', 'product', 'business', 'contact', 'privacy', 'antiemail'];
+  showTab(validTabs.includes(hash) ? hash : 'home');
 
 });
