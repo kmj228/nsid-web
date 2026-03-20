@@ -128,6 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSubNav();
 
+  /* ── Contact 개인정보 동의 ─────────────── */
+  const privacyCheck = document.getElementById('privacyAgree');
+  const submitBtn    = document.getElementById('contactSubmit');
+  if (privacyCheck && submitBtn) {
+    privacyCheck.addEventListener('change', () => {
+      submitBtn.disabled = !privacyCheck.checked;
+    });
+  }
+
   /* ── 초기화 ──────────────────────────── */
   initSlider();
   initCounters();

@@ -291,7 +291,7 @@ img   { display: block; max-width: 100%; }
 .contact-form { display: flex; flex-direction: column; gap: 20px; }
 .contact-form__row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 .contact-form__field { display: flex; flex-direction: column; gap: 8px; }
@@ -398,17 +398,18 @@ img   { display: block; max-width: 100%; }
 a.contact-info__value:hover { color: var(--blue); }
 
 .contact-info__hours {
-  background: var(--navy);
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
   border-radius: 14px;
   padding: 20px;
-  color: rgba(255,255,255,0.7);
+  color: var(--gray-600);
   font-size: 13px;
   line-height: 1.8;
 }
 .contact-info__hours-title {
   font-size: 12px;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--navy);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -422,4 +423,45 @@ a.contact-info__value:hover { color: var(--blue); }
   .contact-wrap { padding: 60px 24px 80px; }
   .contact-form-wrap { padding: 28px 24px; }
   .contact-form__row { grid-template-columns: 1fr; }
+}
+
+/* 버튼 비활성화 + 툴팁 */
+.contact-form__btn-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.contact-form__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.contact-form__btn-wrap:hover .contact-form__btn-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+.contact-form__btn-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--navy);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+/* 버튼 활성화 시 툴팁 숨기기 */
+.contact-form__btn-wrap:has(#contactSubmit:not(:disabled)):hover .contact-form__btn-tooltip {
+  opacity: 0 !important;
+}
+/* 버튼에 pointer-events 복원 (disabled일 때 wrap으로 감지) */
+.contact-form__btn-wrap {
+  cursor: default;
 }
