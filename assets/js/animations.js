@@ -7,8 +7,11 @@
 let fadeIO = null;
 
 export function observeFadeUps() {
-  // 기존 observer 해제 (탭 전환 시 재사용)
   if (fadeIO) fadeIO.disconnect();
+
+  // 히어로 섹션 요소는 즉시 visible 처리 (페이지 전환 시 깜빡임 방지)
+  document.querySelectorAll('.hero .fade-up, .stats .fade-up')
+          .forEach(el => el.classList.add('visible'));
 
   fadeIO = new IntersectionObserver(entries => {
     entries.forEach(entry => {

@@ -21,11 +21,14 @@
 </head>
 <body>
 
+<!-- 페이지 전환 커튼 (깜빡임 차단) -->
+<div class="page-curtain" id="pageCurtain"></div>
+
 <!-- ══ HEADER ══ -->
 <header class="header" id="header">
   <div class="header__inner">
 
-    <a href="#" class="logo" data-tab="home">
+    <a class="logo" data-tab="home">
       <img src="img/nsid_ci.png" alt="엔시드" class="logo__img"
            onerror="this.style.display='none'"/>
       <span class="logo__fallback">
@@ -39,21 +42,21 @@
     <nav class="nav" id="nav">
       <ul class="nav__list">
         <li class="nav__item">
-          <a href="#" class="nav__link active" data-tab="home">HOME</a>
+          <a class="nav__link active" data-tab="home">HOME</a>
         </li>
         <li class="nav__item">
-          <a href="#" class="nav__link" data-tab="product">PRODUCT</a>
+          <a class="nav__link" data-tab="product">PRODUCT</a>
         </li>
         <li class="nav__item">
-          <a href="#" class="nav__link" data-tab="business">BUSINESS</a>
+          <a class="nav__link" data-tab="business">BUSINESS</a>
         </li>
         <li class="nav__item">
-          <a href="#" class="nav__link" data-tab="contact">CONTACT US</a>
+          <a class="nav__link" data-tab="contact">CONTACT US</a>
         </li>
       </ul>
     </nav>
 
-    <a href="#" class="header__cta" data-tab="contact">견적 문의</a>
+    <a class="header__cta" data-tab="contact">견적 문의</a>
     <button class="hamburger" id="hamburger" aria-label="메뉴">
       <span></span><span></span><span></span>
     </button>
@@ -90,11 +93,11 @@
           고객의 비즈니스 환경에 최적화된 Total 서비스를 제공하는 전문 기업입니다.
         </p>
         <div class="hero__actions">
-          <a href="#" class="btn btn--primary" data-tab="business">
+          <a class="btn btn--primary" data-tab="business">
             사업분야 보기
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#" class="btn btn--outline" data-tab="contact">견적 문의하기</a>
+          <a class="btn btn--outline" data-tab="contact">견적 문의하기</a>
         </div>
       </div>
 
@@ -215,7 +218,7 @@
           </div>
         </div>
         <div class="sec__cta">
-          <a href="#" class="btn btn--ghost" data-tab="business" data-sub="businessarea">사업분야 자세히 보기</a>
+          <a class="btn btn--ghost" data-tab="business" data-sub="businessarea">사업분야 자세히 보기</a>
         </div>
       </div>
     </div>
@@ -286,7 +289,7 @@
           </div>
         </div>
         <div class="sec__cta">
-          <a href="#" class="btn btn--ghost" data-tab="product">주요 제품 자세히 보기</a>
+          <a class="btn btn--ghost" data-tab="product">주요 제품 자세히 보기</a>
         </div>
       </div>
     </div>
@@ -796,10 +799,10 @@
         </div>
       </div>
       <nav class="footer__nav">
-        <a href="#" class="footer__nav-link" data-tab="home">HOME</a>
-        <a href="#" class="footer__nav-link" data-tab="product">PRODUCT</a>
-        <a href="#" class="footer__nav-link" data-tab="business">BUSINESS</a>
-        <a href="#" class="footer__nav-link" data-tab="contact">CONTACT US</a>
+        <a class="footer__nav-link" style="cursor:pointer" onclick="event.preventDefault(); showTab('home'); this.blur()">HOME</a>
+        <a class="footer__nav-link" style="cursor:pointer" onclick="event.preventDefault(); showTab('product'); this.blur()">PRODUCT</a>
+        <a class="footer__nav-link" style="cursor:pointer" onclick="event.preventDefault(); showTab('business'); this.blur()">BUSINESS</a>
+        <a class="footer__nav-link" style="cursor:pointer" onclick="event.preventDefault(); showTab('contact'); this.blur()">CONTACT US</a>
       </nav>
     </div>
     <div class="footer__divider"></div>
@@ -809,8 +812,8 @@
         <p>대표전화 : 031-8091-0381 &nbsp;|&nbsp; 팩스 : 031-5176-0690 &nbsp;|&nbsp; 대표이사 : 김철현</p>
       </div>
       <div class="footer__links">
-        <a href="#" class="footer__nav-link" data-tab="privacy">개인정보처리방침</a>
-        <a href="#" class="footer__nav-link" data-tab="antiemail">이메일무단수집거부</a>
+        <a class="footer__nav-link" style="cursor:pointer" onclick="event.preventDefault(); showTab('privacy'); this.blur()">개인정보처리방침</a>
+        <a class="footer__nav-link" style="cursor:pointer" onclick="event.preventDefault(); showTab('antiemail'); this.blur()">이메일무단수집거부</a>
       </div>
     </div>
     <p class="footer__copy">COPYRIGHT © ㈜엔시드. ALL RIGHTS RESERVED.</p>

@@ -14,46 +14,65 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav       = document.getElementById('nav');
   const pages     = document.querySelectorAll('.page');
 
+  /* ── 현재 활성 탭 추적 ── */
+  let currentTab = 'home';
+  const curtain = document.getElementById('pageCurtain');
+
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
   /* ── 탭 전환 ─────────────────────────── */
   function showTab(tabId, subId = null) {
-    if (subIO) subIO.disconnect();
 
-    pages.forEach(p => p.classList.remove('active'));
+    // 같은 탭이면 부드럽게 위로
+    if (tabId === currentTab && !subId) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     const target = document.getElementById('page-' + tabId);
-    if (target) target.classList.add('active');
+    if (!target) return;
 
-    document.querySelectorAll('.nav__link').forEach(link =>
-      link.classList.toggle('active', link.dataset.tab === tabId)
-    );
+    // 1. 커튼 올리기
+    curtain.classList.add('show');
 
-    nav.classList.remove('open');
-    hamburger.classList.remove('open');
+    // 2. 커튼이 완전히 덮인 후에 (transitionend) 페이지 전환
+    const onCover = () => {
+      curtain.removeEventListener('transitionend', onCover);
 
-    // 브라우저가 새 페이지 렌더링한 직후에 스크롤
-    setTimeout(() => {
       window.scrollTo(0, 0);
-    }, 0);
+
+      pages.forEach(p => p.classList.remove('active'));
+      target.classList.add('active');
+      currentTab = tabId;
+
+      document.querySelectorAll('.nav__link').forEach(link =>
+        link.classList.toggle('active', link.dataset.tab === tabId)
+      );
+      nav.classList.remove('open');
+      hamburger.classList.remove('open');
+
+      // 3. 다음 프레임에 커튼 내리기
+      requestAnimationFrame(() => {
+        curtain.classList.remove('show');
+        observeFadeUps();
+        if (tabId === 'home') initCounters();
+      });
+    };
+
+    curtain.addEventListener('transitionend', onCover);
 
     if (subId) {
       const sub = document.getElementById('sub-' + subId);
-      if (sub) setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      if (sub) setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
     }
-
-    setTimeout(() => {
-      observeFadeUps();
-      if (tabId === 'business' && subIO) {
-        const sections = document.querySelectorAll('[id^="sub-"]');
-        sections.forEach(s => subIO.observe(s));
-      }
-    }, 200);
   }
 
-  // 전역 노출 (footer onclick에서 사용)
   window.showTab = showTab;
 
   document.querySelectorAll('[data-tab]').forEach(el => {
     el.addEventListener('click', e => {
       e.preventDefault();
+      e.target.blur();
       showTab(el.dataset.tab, el.dataset.sub || null);
     });
   });

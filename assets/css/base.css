@@ -38,13 +38,17 @@
 
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html  { }
+html  { scroll-behavior: auto !important; }
 body  {
   font-family: var(--font-kr);
   background: var(--white);
+  background-color: #ffffff;
   color: var(--gray-800);
   line-height: 1.6;
   overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 a     { text-decoration: none; color: inherit; }
 ul    { list-style: none; }
@@ -112,15 +116,32 @@ img   { display: block; max-width: 100%; }
 }
 
 /* ── 탭 페이지 전환 ── */
-.main { margin-top: var(--header-h); }
+.main {
+  margin-top: var(--header-h);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 .page { display: none; }
 .page.active {
-  display: block;
-  animation: pageFadeIn 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
-@keyframes pageFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+
+/* ── 전환 커튼 ── */
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.page-curtain.show {
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* ── 빈 페이지 (BUSINESS / CONTACT 준비 중) ── */
