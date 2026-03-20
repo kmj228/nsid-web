@@ -45,7 +45,6 @@
   width: auto;
   object-fit: contain;
   display: block;
-  filter: brightness(0) saturate(100%) invert(11%) sepia(48%) saturate(1800%) hue-rotate(200deg) brightness(90%);
 }
 .logo__fallback {
   display: none;
@@ -226,7 +225,6 @@
   height: 30px; width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
-  opacity: 0.85;
 }
 .footer__logo-fallback {
   display: none;

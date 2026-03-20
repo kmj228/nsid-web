@@ -1,0 +1,286 @@
+/* ══════════════════════════════════════════
+   company.css
+   COMPANY 탭 — 인사말 · 개요 및 연혁 · 찾아오는 길
+══════════════════════════════════════════ */
+
+/* ════════════════════════════════════════
+   인사말
+════════════════════════════════════════ */
+.greeting-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.greeting-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 8px;
+}
+.greeting-text__welcome {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.4;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--blue);
+  margin-bottom: 4px;
+  word-break: keep-all;
+}
+.greeting-text p {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.95;
+  word-break: keep-all;
+}
+.greeting-text__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-200);
+  margin-top: 8px;
+  text-align: right;
+}
+.greeting-text__sign {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+}
+.greeting-text__ceo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.greeting-text__ceo-label {
+  font-size: 12px;
+  color: var(--gray-400);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.greeting-text__ceo-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: 4px;
+  font-family: var(--font-kr);
+}
+
+/* ════════════════════════════════════════
+   개요 (4칸 그리드)
+════════════════════════════════════════ */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 56px;
+}
+.overview-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all var(--ease);
+}
+.overview-card:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+.overview-card__icon {
+  width: 44px; height: 44px;
+  background: var(--blue-soft);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy-light);
+  margin-bottom: 4px;
+}
+.overview-card__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  font-family: var(--font-en);
+}
+.overview-card__value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+/* ════════════════════════════════════════
+   연혁 타임라인
+════════════════════════════════════════ */
+.co-timeline {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 20px;
+  padding: 48px 56px;
+}
+.co-timeline__title {
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--blue);
+  margin-bottom: 40px;
+}
+.co-tl-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.co-tl-item {
+  display: grid;
+  grid-template-columns: 56px 1px 1fr;
+  gap: 0 24px;
+  align-items: start;
+}
+.co-tl-year {
+  font-family: var(--font-en);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--navy);
+  text-align: right;
+  padding-top: 3px;
+}
+.co-tl-line {
+  width: 1px;
+  background: var(--gray-200);
+  position: relative;
+  margin: 0 auto;
+  /* 높이는 content로 늘어남 */
+  min-height: 100%;
+  align-self: stretch;
+}
+.co-tl-line::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+.co-tl-events {
+  list-style: none;
+  padding: 0 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.co-tl-events li {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.7;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  word-break: keep-all;
+}
+.co-tl-month {
+  flex-shrink: 0;
+  font-family: var(--font-en);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 1px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* ════════════════════════════════════════
+   찾아오는 길
+════════════════════════════════════════ */
+.location-wrap {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 40px;
+  align-items: start;
+}
+.location-map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  background: var(--gray-100);
+  aspect-ratio: 16 / 10;
+}
+.location-map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.location-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.location-info__block {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--gray-100);
+  transition: background var(--ease);
+}
+.location-info__block:last-child { border-bottom: none; }
+.location-info__block:hover { background: var(--blue-soft); }
+.location-info__icon {
+  flex-shrink: 0;
+  width: 38px; height: 38px;
+  background: var(--blue-soft);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy-light);
+  margin-top: 1px;
+}
+.location-info__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  font-family: var(--font-en);
+  margin-bottom: 5px;
+}
+.location-info__value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.65;
+}
+
+/* ════════════════════════════════════════
+   반응형
+════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .location-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .co-timeline { padding: 32px 24px; }
+  .overview-grid { grid-template-columns: repeat(2, 1fr); }
+  .co-tl-item { grid-template-columns: 44px 1px 1fr; gap: 0 16px; }
+  .co-tl-year { font-size: 13px; }
+}
+@media (max-width: 480px) {
+  .overview-grid { grid-template-columns: 1fr 1fr; }
+}

@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             initTilt();
           }
           if (tabId === 'business') initSubNav();
+          if (tabId === 'company') initSubNav();
           if (tabId === 'contact') initContact();
           updateBackToTop();
         });
