@@ -37,11 +37,10 @@
   flex-shrink: 0;
 }
 .logo__img {
-  height: 24px;
+  height: 28px;
   width: auto;
   object-fit: contain;
   display: block;
-  /* 흰색 로고 → 네이비 계열로 변환 */
   filter: brightness(0) saturate(100%) invert(11%) sepia(48%) saturate(1800%) hue-rotate(200deg) brightness(90%);
 }
 .logo__fallback {
@@ -233,15 +232,20 @@
 }
 
 .footer__nav { display: flex; gap: 24px; flex-wrap: wrap; }
-.footer__nav a {
+.footer__nav a,
+.footer__nav button {
   font-family: var(--font-en);
   font-size: 12px; font-weight: 600;
   letter-spacing: 1.5px;
   color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: color var(--ease);
+  background: none;
+  border: none;
+  padding: 0;
 }
-.footer__nav a:hover { color: var(--white); }
+.footer__nav a:hover,
+.footer__nav button:hover { color: var(--white); }
 
 .footer__divider {
   height: 1px;
@@ -262,12 +266,19 @@
   color: rgba(255, 255, 255, 0.38);
 }
 .footer__links { display: flex; gap: 16px; flex-shrink: 0; }
-.footer__links a {
+.footer__links a,
+.footer__links button {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.32);
   transition: color var(--ease);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-kr);
 }
-.footer__links a:hover { color: var(--white); }
+.footer__links a:hover,
+.footer__links button:hover { color: var(--white); }
 .footer__copy {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.18);

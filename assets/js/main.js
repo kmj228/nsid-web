@@ -16,8 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 탭 전환 ─────────────────────────── */
   function showTab(tabId, subId = null) {
-    pages.forEach(p => p.classList.remove('active'));
+    if (subIO) subIO.disconnect();
 
+    pages.forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + tabId);
     if (target) target.classList.add('active');
 
@@ -28,16 +29,27 @@ document.addEventListener('DOMContentLoaded', () => {
     nav.classList.remove('open');
     hamburger.classList.remove('open');
 
+    // 브라우저가 새 페이지 렌더링한 직후에 스크롤
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+
     if (subId) {
       const sub = document.getElementById('sub-' + subId);
-      if (sub) setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (sub) setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
     }
 
-    // 탭 전환 후 새 페이지 fade-up 요소 관찰
-    observeFadeUps();
+    setTimeout(() => {
+      observeFadeUps();
+      if (tabId === 'business' && subIO) {
+        const sections = document.querySelectorAll('[id^="sub-"]');
+        sections.forEach(s => subIO.observe(s));
+      }
+    }, 200);
   }
+
+  // 전역 노출 (footer onclick에서 사용)
+  window.showTab = showTab;
 
   document.querySelectorAll('[data-tab]').forEach(el => {
     el.addEventListener('click', e => {
@@ -65,6 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ── BUSINESS 서브 네비 ─────────────── */
+  let subIO = null;
+
   function initSubNav() {
     const subBtns = document.querySelectorAll('.sub-nav__btn');
     if (!subBtns.length) return;
@@ -80,14 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 스크롤 시 서브네비 active 자동 갱신
     const sections = document.querySelectorAll('[id^="sub-"]');
-    const subIO = new IntersectionObserver(entries => {
+
+    subIO = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.id.replace('sub-', '');
           subBtns.forEach(b => b.classList.toggle('active', b.dataset.sub === id));
         }
       });
-    }, { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' });
+    }, { threshold: 0.25, rootMargin: '-80px 0px -50% 0px' });
 
     sections.forEach(s => subIO.observe(s));
   }
@@ -102,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // URL 해시로 초기 탭 결정
   const hash = window.location.hash.replace('#', '');
-  if (['home', 'product', 'business', 'contact'].includes(hash)) {
+  if (['home', 'product', 'business', 'contact', 'privacy', 'antiemail'].includes(hash)) {
     showTab(hash);
   } else {
     showTab('home');

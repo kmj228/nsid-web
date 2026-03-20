@@ -44,14 +44,8 @@
         <li class="nav__item">
           <a href="#" class="nav__link" data-tab="product">PRODUCT</a>
         </li>
-        <li class="nav__item nav__item--dropdown">
+        <li class="nav__item">
           <a href="#" class="nav__link" data-tab="business">BUSINESS</a>
-          <ul class="nav__dropdown">
-            <li><a class="nav__dropdown-link" data-tab="business" data-sub="businessarea">사업분야</a></li>
-            <li><a class="nav__dropdown-link" data-tab="business" data-sub="partners">주요고객 및 협력사</a></li>
-            <li><a class="nav__dropdown-link" data-tab="business" data-sub="certificate">인증 및 특허</a></li>
-            <li><a class="nav__dropdown-link" data-tab="business" data-sub="rnd">R&amp;D</a></li>
-          </ul>
         </li>
         <li class="nav__item">
           <a href="#" class="nav__link" data-tab="contact">CONTACT US</a>
@@ -380,106 +374,49 @@
       </div>
       <div class="biz-sec__body">
 
-        <!-- 다이어그램 (메인과 동일) -->
-        <div class="biz-diagram fade-up">
-          <div class="biz-diagram__row">
-            <div class="biz-diagram__node">
-              <div class="biz-diagram__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="9" height="9" rx="2"/><rect x="13" y="2" width="9" height="9" rx="2"/><rect x="2" y="13" width="9" height="9" rx="2"/><rect x="13" y="13" width="9" height="9" rx="2"/></svg>
-              </div>
-              <h4>시스템 통합</h4>
-              <p>H/W · S/W · N/W 통합 구축<br/>검증된 방법론 기반 시스템 통합<br/>고객사 맞춤형 IT 인프라 설계</p>
-            </div>
-            <div class="biz-diagram__node">
-              <div class="biz-diagram__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <h4>컨설팅 서비스</h4>
-              <p>공공·정부기관 및 기업 대상<br/>자체 방법론 기반 IT 전략 수립<br/>고객 밀착형 비즈니스 프로세스 지원</p>
-            </div>
-          </div>
-          <div class="biz-diagram__mid">
-            <div class="biz-diagram__line biz-diagram__line--top-left"></div>
-            <div class="biz-diagram__line biz-diagram__line--top-right"></div>
-            <div class="biz-diagram__hub">
-              <div class="biz-diagram__hub-ring"></div>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="3" fill="#3B82F6" stroke="none"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="9" x2="6.5" y2="6.5"/><line x1="12" y1="9" x2="17.5" y2="6.5"/><line x1="12" y1="15" x2="6.5" y2="17.5"/><line x1="12" y1="15" x2="17.5" y2="17.5"/></svg>
-              <span>IoT HUB</span>
-            </div>
-            <div class="biz-diagram__line biz-diagram__line--bottom-left"></div>
-            <div class="biz-diagram__line biz-diagram__line--bottom-right"></div>
-          </div>
-          <div class="biz-diagram__row biz-diagram__row--bottom">
-            <div class="biz-diagram__node">
-              <div class="biz-diagram__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-              </div>
-              <h4>유지관리</h4>
-              <p>시스템 운영 및 유지보수<br/>장애처리 · AS · 기술지원<br/>신기술 적용 서비스 지원</p>
-            </div>
-            <div class="biz-diagram__node">
-              <div class="biz-diagram__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-              </div>
-              <h4>R&amp;D 개발</h4>
-              <p>IoT 단말 제품 개발<br/>LoRa · AI · 스마트 IoT 연구<br/>신규 플랫폼 개발 및 상용화</p>
-            </div>
-            <div class="biz-diagram__node">
-              <div class="biz-diagram__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              </div>
-              <h4>H/W · S/W 판매</h4>
-              <p>최적 구성 하드웨어 공급<br/>소프트웨어 라이선스 제공<br/>고객 생산성 극대화 솔루션</p>
-            </div>
-          </div>
-        </div>
-
         <!-- 상세 카드 -->
         <div class="ba-detail">
+          <!-- 상단 2개 -->
           <div class="ba-detail__card fade-up" style="--delay:0ms">
-            <div class="ba-detail__num">01</div>
             <p class="ba-detail__title">시스템 통합 서비스</p>
             <ul class="ba-detail__list">
-              <li>고객 경영전략 지원 시스템 개발 및 통합</li>
+              <li>고객의 경영전략 및 업무를 효과적으로 지원하는 시스템 개발 및 통합</li>
               <li>H/W, S/W, N/W 통합 구축</li>
-              <li>검증된 방법론 기반 고객사 시스템 통합</li>
+              <li>검증된 방법론 기반으로 고객사 시스템 통합</li>
             </ul>
           </div>
           <div class="ba-detail__card fade-up" style="--delay:60ms">
-            <div class="ba-detail__num">02</div>
             <p class="ba-detail__title">컨설팅 서비스</p>
             <ul class="ba-detail__list">
-              <li>자체 방법론 기반 공공/정부기관 컨설팅</li>
-              <li>고객사 비즈니스 프로세스 기반 IT 서비스</li>
-              <li>고객 밀착형 전략 수립 지원</li>
+              <li>자체 방법론 기반으로 공공/정부기관 및 기업의 컨설팅</li>
+              <li>고객사 비즈니스 프로세스 기반, 고객 밀착형 IT서비스 제공</li>
             </ul>
           </div>
-          <div class="ba-detail__card fade-up" style="--delay:120ms">
-            <div class="ba-detail__num">03</div>
-            <p class="ba-detail__title">유지관리 부문</p>
-            <ul class="ba-detail__list">
-              <li>시스템 관리 및 운영 · 유지보수</li>
-              <li>장애처리 및 AS 유지보수</li>
-              <li>기술지원 및 신기술 적용 서비스</li>
-            </ul>
-          </div>
-          <div class="ba-detail__card fade-up" style="--delay:180ms">
-            <div class="ba-detail__num">04</div>
-            <p class="ba-detail__title">R&amp;D 솔루션 개발 · 판매</p>
-            <ul class="ba-detail__list">
-              <li>IoT 단말 제품 개발 및 솔루션 개발</li>
-              <li>LoRa 관련 솔루션 개발</li>
-              <li>AI · 스마트 IoT 신기술 연구</li>
-            </ul>
-          </div>
-          <div class="ba-detail__card fade-up" style="--delay:240ms">
-            <div class="ba-detail__num">05</div>
-            <p class="ba-detail__title">H/W · S/W 판매</p>
-            <ul class="ba-detail__list">
-              <li>고객 경제성을 고려한 최적 장비 구성</li>
-              <li>소프트웨어 라이선스 공급</li>
-              <li>기술지원 및 AS 서비스 제공</li>
-            </ul>
+          <!-- 하단 3개 -->
+          <div class="ba-detail__row2">
+            <div class="ba-detail__card fade-up" style="--delay:120ms">
+              <p class="ba-detail__title">유지관리부문</p>
+              <ul class="ba-detail__list">
+                <li>시스템 관리 및 운영, 유지보수</li>
+                <li>장애처리 및 AS유지보수</li>
+                <li>기술지원 및 향후 신기술 적용 등 서비스지원</li>
+              </ul>
+            </div>
+            <div class="ba-detail__card fade-up" style="--delay:180ms">
+              <p class="ba-detail__title">R&amp;D Solution 개발 및 판매</p>
+              <ul class="ba-detail__list">
+                <li>IoT 단말 제품 개발 및 Solution 개발</li>
+                <li>LoRa 관련 Solution 개발</li>
+              </ul>
+            </div>
+            <div class="ba-detail__card fade-up" style="--delay:240ms">
+              <p class="ba-detail__title">H/W, S/W 판매</p>
+              <ul class="ba-detail__list">
+                <li>시스템 관리 및 운영, 유지보수</li>
+                <li>장애처리 및 AS유지보수</li>
+                <li>기술지원 및 향후 신기술 적용 등 서비스지원</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -498,22 +435,22 @@
         <div class="partner-section fade-up">
           <p class="partner-section__title">PUBLIC · GOVERNMENT</p>
           <div class="partner-grid">
-            <div class="partner-card"><img src="img/partner01.jpg" alt="영등포구" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>영등포구</span>'"/></div>
-            <div class="partner-card"><img src="img/partner02.jpg" alt="경북" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>경북</span>'"/></div>
-            <div class="partner-card"><img src="img/partner03.jpg" alt="포항시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>포항시</span>'"/></div>
-            <div class="partner-card"><img src="img/partner08.jpg" alt="군포시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>군포시</span>'"/></div>
-            <div class="partner-card"><img src="img/partner09.jpg" alt="평택시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>평택시</span>'"/></div>
-            <div class="partner-card"><img src="img/partner11.jpg" alt="강서구" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>강서구</span>'"/></div>
-            <div class="partner-card"><img src="img/partner15.jpg" alt="군산시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>군산시</span>'"/></div>
-            <div class="partner-card"><img src="img/partner17.jpg" alt="달서구" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>달서구</span>'"/></div>
-            <div class="partner-card"><img src="img/partner18.jpg" alt="전주시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>전주시</span>'"/></div>
-            <div class="partner-card"><img src="img/partner19.jpg" alt="김제시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>김제시</span>'"/></div>
-            <div class="partner-card"><img src="img/partner22.jpg" alt="강원도" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>강원도</span>'"/></div>
-            <div class="partner-card"><img src="img/partner23.jpg" alt="익산시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>익산시</span>'"/></div>
-            <div class="partner-card"><img src="img/partner24.jpg" alt="춘향남원" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>춘향남원</span>'"/></div>
-            <div class="partner-card"><img src="img/partner10.jpg" alt="경상남도소방본부" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>경남소방</span>'"/></div>
-            <div class="partner-card"><img src="img/partner13.jpg" alt="충청북도소방본부" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>충북소방</span>'"/></div>
-            <div class="partner-card"><img src="img/partner12.jpg" alt="부산교통공사" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>부산교통공사</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list01.jpg" alt="영등포구" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>영등포구</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list02.jpg" alt="경북" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>경북</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list03.jpg" alt="포항시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>포항시</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list08.jpg" alt="군포시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>군포시</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list09.jpg" alt="평택시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>평택시</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list11.jpg" alt="강서구" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>강서구</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list15.jpg" alt="군산시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>군산시</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list17.jpg" alt="달서구" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>달서구</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list18.jpg" alt="전주시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>전주시</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list19.jpg" alt="김제시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>김제시</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list22.jpg" alt="강원도" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>강원도</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list23.jpg" alt="익산시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>익산시</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list24.jpg" alt="춘향남원" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>춘향남원</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list10.jpg" alt="경상남도소방본부" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>경남소방</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list13.jpg" alt="충청북도소방본부" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>충북소방</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list12.jpg" alt="부산교통공사" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>부산교통공사</span>'"/></div>
           </div>
         </div>
 
@@ -521,12 +458,12 @@
         <div class="partner-section fade-up">
           <p class="partner-section__title">ENTERPRISE · PUBLIC CORPORATION</p>
           <div class="partner-grid">
-            <div class="partner-card"><img src="img/partner05.jpg" alt="LG화학" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>LG화학</span>'"/></div>
-            <div class="partner-card"><img src="img/partner06.jpg" alt="강원랜드" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>강원랜드</span>'"/></div>
-            <div class="partner-card"><img src="img/partner07.jpg" alt="LG U+" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>LG U+</span>'"/></div>
-            <div class="partner-card"><img src="img/partner16.jpg" alt="한국수력원자력" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>한수원</span>'"/></div>
-            <div class="partner-card"><img src="img/partner20.jpg" alt="한국토지주택공사" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>LH</span>'"/></div>
-            <div class="partner-card"><img src="img/partner21.jpg" alt="SK hynix" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>SK하이닉스</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list05.jpg" alt="LG화학" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>LG화학</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list06.jpg" alt="강원랜드" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>강원랜드</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list07.jpg" alt="LG U+" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>LG U+</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list16.jpg" alt="한국수력원자력" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>한수원</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list20.jpg" alt="한국토지주택공사" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>LH</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list21.jpg" alt="SK hynix" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>SK하이닉스</span>'"/></div>
           </div>
         </div>
 
@@ -534,14 +471,14 @@
         <div class="partner-section fade-up">
           <p class="partner-section__title">PARTNERS</p>
           <div class="partner-grid">
-            <div class="partner-card"><img src="img/partner04.jpg" alt="passnet" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>Passnet</span>'"/></div>
-            <div class="partner-card"><img src="img/partner14.jpg" alt="곤지암" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>곤지암</span>'"/></div>
-            <div class="partner-card"><img src="img/partner25.jpg" alt="코오롱베니트" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>코오롱베니트</span>'"/></div>
-            <div class="partner-card"><img src="img/partner26.jpg" alt="SECUI" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>SECUI</span>'"/></div>
-            <div class="partner-card"><img src="img/partner27.jpg" alt="에스원" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>에스원</span>'"/></div>
-            <div class="partner-card"><img src="img/partner28.jpg" alt="동부CNI" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>동부CNI</span>'"/></div>
-            <div class="partner-card"><img src="img/partner29.jpg" alt="JMsys" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>JMsys</span>'"/></div>
-            <div class="partner-card"><img src="img/partner30.jpg" alt="Inodep" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>Inodep</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list04.jpg" alt="passnet" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>Passnet</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list14.jpg" alt="곤지암" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>곤지암</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list25.jpg" alt="코오롱베니트" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>코오롱베니트</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list26.jpg" alt="SECUI" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>SECUI</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list27.jpg" alt="에스원" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>에스원</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list28.jpg" alt="동부CNI" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>동부CNI</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list29.jpg" alt="JMsys" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>JMsys</span>'"/></div>
+            <div class="partner-card"><img src="img/partner_list30.jpg" alt="Inodep" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>Inodep</span>'"/></div>
           </div>
         </div>
       </div>
@@ -557,7 +494,7 @@
       <div class="biz-sec__body">
         <div class="cert-grid">
           <div class="cert-card fade-up" style="--delay:0ms">
-            <img src="img/cert01.jpg" alt="특허증 지능형소화전" class="cert-card__img"
+            <img src="img/cert01.png" alt="특허증 지능형소화전" class="cert-card__img"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
             <div class="cert-card__placeholder" style="display:none">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -569,7 +506,7 @@
             </div>
           </div>
           <div class="cert-card fade-up" style="--delay:60ms">
-            <img src="img/cert02.jpg" alt="특허증 보관함 개폐" class="cert-card__img"
+            <img src="img/cert02.png" alt="특허증 보관함 개폐" class="cert-card__img"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
             <div class="cert-card__placeholder" style="display:none">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -581,7 +518,7 @@
             </div>
           </div>
           <div class="cert-card fade-up" style="--delay:120ms">
-            <img src="img/cert03.jpg" alt="조달청 새싹기업" class="cert-card__img"
+            <img src="img/cert03.png" alt="조달청 새싹기업" class="cert-card__img"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
             <div class="cert-card__placeholder" style="display:none">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -593,7 +530,7 @@
             </div>
           </div>
           <div class="cert-card fade-up" style="--delay:180ms">
-            <img src="img/cert04.jpg" alt="소프트웨어 품질인증서" class="cert-card__img"
+            <img src="img/cert04.png" alt="소프트웨어 품질인증서" class="cert-card__img"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
             <div class="cert-card__placeholder" style="display:none">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -605,7 +542,7 @@
             </div>
           </div>
           <div class="cert-card fade-up" style="--delay:240ms">
-            <img src="img/cert05.jpg" alt="벤처확인서" class="cert-card__img"
+            <img src="img/cert05.png" alt="벤처확인서" class="cert-card__img"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
             <div class="cert-card__placeholder" style="display:none">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -617,7 +554,7 @@
             </div>
           </div>
           <div class="cert-card fade-up" style="--delay:300ms">
-            <img src="img/cert06.jpg" alt="ISO 14001" class="cert-card__img"
+            <img src="img/cert06.png" alt="ISO 14001" class="cert-card__img"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
             <div class="cert-card__placeholder" style="display:none">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -629,7 +566,7 @@
             </div>
           </div>
           <div class="cert-card fade-up" style="--delay:360ms">
-            <img src="img/cert07.jpg" alt="ISO 9001" class="cert-card__img"
+            <img src="img/cert07.png" alt="ISO 9001" class="cert-card__img"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
             <div class="cert-card__placeholder" style="display:none">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -641,7 +578,7 @@
             </div>
           </div>
           <div class="cert-card fade-up" style="--delay:420ms">
-            <img src="img/cert08.jpg" alt="Inno-Biz" class="cert-card__img"
+            <img src="img/cert08.png" alt="Inno-Biz" class="cert-card__img"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
             <div class="cert-card__placeholder" style="display:none">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -773,6 +710,74 @@
     </div>
   </section>
 
+  <!-- ════ 개인정보처리방침 ════ -->
+  <section class="page" id="page-privacy">
+    <div class="policy-wrap">
+      <div class="policy__head">
+        <span class="sec__tag">PRIVACY POLICY</span>
+        <h2 class="policy__title">개인정보처리방침</h2>
+      </div>
+      <div class="policy__body">
+        <div class="policy__block">
+          <h3>제1조 (개인정보 수집에 대한 동의)</h3>
+          <p>㈜엔시드(이하 "회사")는 이용자들이 회사의 개인정보취급방침 또는 이용약관의 내용에 대하여 「동의」버튼을 클릭할 수 있는 절차를 마련하여, 「동의」버튼을 클릭하면 개인정보 수집에 대해 동의한 것으로 봅니다.</p>
+        </div>
+        <div class="policy__block">
+          <h3>제2조 (개인정보 수집항목)</h3>
+          <p>온라인 문의를 통한 상담을 위해 처리하는 개인정보 항목은 아래와 같습니다.</p>
+          <p><strong>수집항목 :</strong> 성명, 이메일, 전화번호</p>
+        </div>
+        <div class="policy__block">
+          <h3>제3조 (개인정보의 이용목적)</h3>
+          <p>회사는 이용자의 사전 동의 없이는 이용자의 개인 정보를 공개하지 않으며, 원활한 고객상담 및 각종 서비스의 제공을 위해 아래와 같이 개인정보를 수집하고 있습니다.</p>
+          <ul>
+            <li>성명 : 제품상담에 따른 본인 확인</li>
+            <li>이메일, 전화번호 : 제품상담 및 이벤트 관련 고지사항 전달, 새로운 서비스 및 신상품 정보 제공</li>
+          </ul>
+          <p>이용자는 개인정보의 수집/이용에 대한 동의를 거부할 수 있습니다. 다만, 동의를 거부하는 경우 온라인 문의를 통한 상담은 불가하며 서비스 이용 및 혜택 제공에 제한을 받을 수 있습니다.</p>
+        </div>
+        <div class="policy__block">
+          <h3>제4조 (개인정보의 보유 및 이용기간)</h3>
+          <p>원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.</p>
+          <ul>
+            <li>계약 또는 청약철회 등에 관한 기록 : 5년</li>
+            <li>소비자의 불만 또는 분쟁처리에 관한 기록 : 3년</li>
+            <li>신용정보의 수집/처리 및 이용 등에 관한 기록 : 3년</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ 이메일무단수집거부 ════ -->
+  <section class="page" id="page-antiemail">
+    <div class="policy-wrap">
+      <div class="policy__head">
+        <span class="sec__tag">EMAIL POLICY</span>
+        <h2 class="policy__title">이메일무단수집거부</h2>
+      </div>
+      <div class="policy__body">
+        <div class="policy__block policy__block--notice">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <p>본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부하며, 이를 위반 시 정보통신망법에 의해 형사처벌됨을 유념하시기 바랍니다.</p>
+        </div>
+        <div class="policy__block">
+          <h3>관련 법령</h3>
+          <p>정보통신망 이용촉진 및 정보보호 등에 관한 법률 제50조의 2 (전자우편주소의 무단 수집행위 등 금지)</p>
+          <ul>
+            <li>누구든지 전자우편주소의 수집을 거부하는 의사가 명시된 인터넷 홈페이지에서 자동으로 전자우편주소를 수집하는 프로그램 그 밖의 기술적 장치를 이용하여 전자우편주소를 수집하여서는 아니 된다.</li>
+            <li>누구든지 제1항의 규정을 위반하여 수집된 전자우편주소를 판매·유통하여서는 아니 된다.</li>
+            <li>누구든지 제1항 및 제2항의 규정에 의하여 수집·판매 및 유통이 금지된 전자우편주소임을 알고 이를 정보 전송에 이용하여서는 아니 된다.</li>
+          </ul>
+        </div>
+        <div class="policy__block">
+          <h3>위반 시 처벌</h3>
+          <p>위 내용을 위반 시 정보통신망법 제74조에 의해 <strong>1천만원 이하의 벌금</strong>에 처해질 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- ══ FOOTER ══ -->
@@ -791,9 +796,10 @@
         </div>
       </div>
       <nav class="footer__nav">
-        <a href="#" data-tab="home">HOME</a>
-        <a href="#" data-tab="business">BUSINESS</a>
-        <a href="#" data-tab="contact">CONTACT US</a>
+        <a href="#" class="footer__nav-link" data-tab="home">HOME</a>
+        <a href="#" class="footer__nav-link" data-tab="product">PRODUCT</a>
+        <a href="#" class="footer__nav-link" data-tab="business">BUSINESS</a>
+        <a href="#" class="footer__nav-link" data-tab="contact">CONTACT US</a>
       </nav>
     </div>
     <div class="footer__divider"></div>
@@ -803,9 +809,8 @@
         <p>대표전화 : 031-8091-0381 &nbsp;|&nbsp; 팩스 : 031-5176-0690 &nbsp;|&nbsp; 대표이사 : 김철현</p>
       </div>
       <div class="footer__links">
-        <a href="#">이용약관</a>
-        <a href="#">개인정보처리방침</a>
-        <a href="#">이메일무단수집거부</a>
+        <a href="#" class="footer__nav-link" data-tab="privacy">개인정보처리방침</a>
+        <a href="#" class="footer__nav-link" data-tab="antiemail">이메일무단수집거부</a>
       </div>
     </div>
     <p class="footer__copy">COPYRIGHT © ㈜엔시드. ALL RIGHTS RESERVED.</p>
