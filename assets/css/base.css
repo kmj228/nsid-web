@@ -38,7 +38,7 @@
 
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html  { scroll-behavior: auto !important; }
+html  { }
 body  {
   font-family: var(--font-kr);
   background: var(--white);
@@ -119,9 +119,15 @@ img   { display: block; max-width: 100%; }
 .main {
   margin-top: var(--header-h);
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 .page { display: none; }
-.page.active { display: block; }
+.page.active {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
 /* ── 전환 커튼 ── */
 .page-curtain {
@@ -240,20 +246,19 @@ img   { display: block; max-width: 100%; }
   .policy-wrap { padding: 60px 24px 80px; }
   .policy__block { padding: 24px 20px; }
 }
-<<<<<<< HEAD
-
 
 /* ════════════════════════════════════════
    CONTACT US 페이지
 ════════════════════════════════════════ */
 .contact-wrap {
-  max-width: 860px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 80px 40px 100px;
 }
+
 .contact-hero {
   text-align: center;
-  margin-bottom: 52px;
+  margin-bottom: 64px;
 }
 .contact-hero__title {
   font-size: clamp(28px, 4vw, 44px);
@@ -268,6 +273,13 @@ img   { display: block; max-width: 100%; }
   word-break: keep-all;
 }
 
+.contact-body {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: start;
+}
+
 /* ── 폼 ── */
 .contact-form-wrap {
   background: var(--white);
@@ -275,9 +287,13 @@ img   { display: block; max-width: 100%; }
   border-radius: 20px;
   padding: 40px 44px;
   box-shadow: var(--shadow);
-  margin-bottom: 32px;
 }
 .contact-form { display: flex; flex-direction: column; gap: 20px; }
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
 .contact-form__field { display: flex; flex-direction: column; gap: 8px; }
 .contact-form__label {
   font-size: 14px;
@@ -307,6 +323,7 @@ img   { display: block; max-width: 100%; }
 }
 .contact-form__textarea { resize: vertical; min-height: 140px; }
 .contact-form__select { cursor: pointer; }
+
 .contact-form__privacy {
   display: flex;
   align-items: center;
@@ -322,14 +339,11 @@ img   { display: block; max-width: 100%; }
   color: var(--gray-600);
   cursor: pointer;
 }
-.contact-form__checkbox { accent-color: var(--blue); width: 16px; height: 16px; cursor: pointer; }
+.contact-form__checkbox { accent-color: var(--blue); width: 16px; height: 16px; }
 .contact-form__privacy-link {
   font-size: 12px;
   color: var(--blue);
   text-decoration: underline;
-}
-.contact-form__btn-wrap {
-  position: relative;
 }
 .contact-form__btn {
   width: 100%;
@@ -337,44 +351,12 @@ img   { display: block; max-width: 100%; }
   padding: 16px;
   font-size: 15px;
 }
-.contact-form__btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  transform: none !important;
-  box-shadow: none !important;
-}
-.contact-form__btn-tooltip {
-  display: none;
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--navy);
-  color: var(--white);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 6px;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 10;
-}
-.contact-form__btn-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%; left: 50%;
-  transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: var(--navy);
-}
-.contact-form__btn-wrap:hover .contact-form__btn-tooltip { display: block; }
-.contact-form__btn-wrap:has(#contactSubmit:not(:disabled)) .contact-form__btn-tooltip { display: none !important; }
 
-/* ── 연락처 정보 ── */
+/* ── 담당자 정보 ── */
 .contact-info {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .contact-info__card {
   background: var(--gray-50);
@@ -383,7 +365,7 @@ img   { display: block; max-width: 100%; }
   padding: 20px;
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px;
   transition: all var(--ease);
 }
 .contact-info__card:hover {
@@ -392,7 +374,7 @@ img   { display: block; max-width: 100%; }
   box-shadow: var(--shadow);
 }
 .contact-info__icon {
-  width: 40px; height: 40px;
+  width: 42px; height: 42px;
   background: var(--blue-soft);
   border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
@@ -413,34 +395,31 @@ img   { display: block; max-width: 100%; }
   color: var(--navy);
   line-height: 1.6;
 }
+a.contact-info__value:hover { color: var(--blue); }
+
 .contact-info__hours {
-  grid-column: 1 / -1;
-  background: var(--gray-50);
-  border: 1px solid var(--gray-200);
+  background: var(--navy);
   border-radius: 14px;
-  padding: 18px 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  padding: 20px;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  line-height: 1.8;
 }
 .contact-info__hours-title {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  color: var(--navy);
-  letter-spacing: 1px;
+  color: var(--blue);
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  flex-shrink: 0;
-}
-.contact-info__hours p {
-  font-size: 13px;
-  color: var(--gray-600);
+  margin-bottom: 8px;
 }
 
-@media (max-width: 700px) {
-  .contact-wrap { padding: 60px 24px 80px; }
-  .contact-form-wrap { padding: 28px 20px; }
-  .contact-info { grid-template-columns: 1fr; }
+/* ── 반응형 ── */
+@media (max-width: 900px) {
+  .contact-body { grid-template-columns: 1fr; }
 }
-=======
->>>>>>> parent of 4956e3d (dddd)
+@media (max-width: 600px) {
+  .contact-wrap { padding: 60px 24px 80px; }
+  .contact-form-wrap { padding: 28px 24px; }
+  .contact-form__row { grid-template-columns: 1fr; }
+}
