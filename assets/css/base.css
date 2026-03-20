@@ -119,15 +119,9 @@ img   { display: block; max-width: 100%; }
 .main {
   margin-top: var(--header-h);
   flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 .page { display: none; }
-.page.active {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
+.page.active { display: block; }
 
 /* ── 전환 커튼 ── */
 .page-curtain {
