@@ -33,7 +33,7 @@ function animateCounter(el, target, duration = 1600) {
   requestAnimationFrame(update);
 }
 
-export function initCounters() {
+function initCounters() {
   const counterEls = document.querySelectorAll('.stats__number');
   if (!counterEls.length) return;
 

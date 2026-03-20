@@ -1,23 +1,21 @@
 /* ══════════════════════════════════════════
    assets/js/main.js
-   탭 전환 (fetch lazy load) · 햄버거 · 헤더 · 초기화
+   탭 전환 (모든 페이지 DOM에 내장) · 햄버거 · 헤더
    + 페이지 진행 바 · Back to Top
+   ※ fetch() 제거 — 단일 파일 구조 대응
 ══════════════════════════════════════════ */
-
-import { initSlider }               from './slider.js';
-import { initCounters }             from './counter.js';
-import { observeFadeUps, initTilt } from './animations.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const header      = document.getElementById('header');
-  const hamburger   = document.getElementById('hamburger');
-  const nav         = document.getElementById('nav');
-  const mainEl      = document.getElementById('mainContent');
-  const progressBar = document.getElementById('pageProgressBar');
+  const header       = document.getElementById('header');
+  const hamburger    = document.getElementById('hamburger');
+  const nav          = document.getElementById('nav');
+  const progressBar  = document.getElementById('pageProgressBar');
+  const backToTopEl  = document.getElementById('backToTop');
+  const scrollRingEl = document.getElementById('scrollRing');
+  const CIRCUMFERENCE = 2 * Math.PI * 19;
 
   let currentTab = null;
-  const pageCache = {};       // 로드된 페이지 HTML 캐시
 
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     progressBar.style.transition = 'none';
     progressBar.style.width      = '0%';
     progressBar.style.opacity    = '1';
-
     requestAnimationFrame(() => {
       progressBar.style.transition = 'width 0.15s ease';
       progressBar.style.width = '40%';
@@ -51,47 +48,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ════════════════════════════════════════
-     페이지 fetch + 캐시
+     탭 전환 — DOM에 미리 삽입된 .page 전환
   ════════════════════════════════════════ */
-  async function loadPage(tabId) {
-    if (pageCache[tabId]) return pageCache[tabId];
-    try {
-      const res = await fetch(`pages/${tabId}.html`);
-      if (!res.ok) throw new Error(`${tabId} not found`);
-      const html = await res.text();
-      pageCache[tabId] = html;
-      return html;
-    } catch (e) {
-      console.warn('Page load failed:', e);
-      return `<section class="page" id="page-${tabId}"><div class="empty-page"><h2 class="empty-page__title">${tabId.toUpperCase()}</h2></div></section>`;
-    }
-  }
-
-  /* ════════════════════════════════════════
-     탭 전환
-  ════════════════════════════════════════ */
-  async function showTab(tabId, subId = null) {
-
+  function showTab(tabId, subId) {
     if (tabId === currentTab && !subId) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
-    runProgress(async () => {
-      const html = await loadPage(tabId);
+    runProgress(() => {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const page = document.getElementById('page-' + tabId);
+      if (page) page.classList.add('active');
 
-      window.scrollTo(0, 0);
-      mainEl.innerHTML = html;
       currentTab = tabId;
+      window.scrollTo(0, 0);
 
       document.querySelectorAll('.nav__link').forEach(link =>
         link.classList.toggle('active', link.dataset.tab === tabId)
       );
       nav.classList.remove('open');
       hamburger.classList.remove('open');
-
-      // data-tab 링크 재바인딩 (새로 삽입된 DOM)
-      bindTabLinks();
 
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -102,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             initTilt();
           }
           if (tabId === 'business') initSubNav();
-          if (tabId === 'contact' && typeof initContact === 'function') initContact();
+          if (tabId === 'contact') initContact();
           updateBackToTop();
         });
       });
@@ -118,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.showTab = showTab;
 
+  /* ── data-tab 링크 바인딩 ── */
   function bindTabLinks() {
     document.querySelectorAll('[data-tab]').forEach(el => {
       if (el.dataset.bound) return;
@@ -129,8 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
-  // 헤더/푸터의 data-tab 링크 (최초 1회)
   bindTabLinks();
 
   /* ════════════════════════════════════════
@@ -143,10 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ════════════════════════════════════════
      Back to Top + 스크롤 링
   ════════════════════════════════════════ */
-  const backToTopEl  = document.getElementById('backToTop');
-  const scrollRingEl = document.getElementById('scrollRing');
-  const CIRCUMFERENCE = 2 * Math.PI * 19;
-
   function updateBackToTop() {
     if (!backToTopEl) return;
     const scrollY   = window.scrollY;
@@ -165,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.classList.toggle('open');
     nav.classList.toggle('open');
   });
-
   document.addEventListener('click', e => {
     if (!header.contains(e.target)) {
       nav.classList.remove('open');
@@ -198,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { threshold: 0.25, rootMargin: '-80px 0px -50% 0px' });
-
     sections.forEach(s => subIO.observe(s));
   }
 
@@ -206,9 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
      초기화
   ════════════════════════════════════════ */
   updateBackToTop();
-
-  const hash = window.location.hash.replace('#', '');
-  const validTabs = ['home', 'product', 'business', 'contact', 'privacy', 'antiemail'];
-  showTab(validTabs.includes(hash) ? hash : 'home');
+  showTab('home');
 
 });

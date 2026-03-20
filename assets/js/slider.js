@@ -3,7 +3,7 @@
    히어로 슬라이더
 ══════════════════════════════════════════ */
 
-export function initSlider() {
+function initSlider() {
   const slides  = document.querySelectorAll('.hero__slide');
   const dots    = document.querySelectorAll('.hero__dot');
   const prevBtn = document.getElementById('heroPrev');

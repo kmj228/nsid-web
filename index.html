@@ -26,10 +26,8 @@
 <!-- ══ HEADER ══ -->
 <header class="header" id="header">
   <div class="header__inner">
-
     <a class="logo" data-tab="home">
-      <img src="img/nsid_ci.png" alt="엔시드" class="logo__img"
-           onerror="this.style.display='none'"/>
+      <img src="img/nsid_ci.png" alt="엔시드" class="logo__img" onerror="this.style.display='none'"/>
       <span class="logo__fallback">
         <span class="logo__mark">N</span>
         <span class="logo__text">NSID</span>
@@ -37,34 +35,956 @@
       <span class="logo__divider">|</span>
       <span class="logo__kr">엔시드</span>
     </a>
-
     <nav class="nav" id="nav">
       <ul class="nav__list">
-        <li class="nav__item">
-          <a class="nav__link active" data-tab="home">HOME</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" data-tab="product">PRODUCT</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" data-tab="business">BUSINESS</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" data-tab="contact">CONTACT US</a>
-        </li>
+        <li class="nav__item"><a class="nav__link active" data-tab="home">HOME</a></li>
+        <li class="nav__item"><a class="nav__link" data-tab="product">PRODUCT</a></li>
+        <li class="nav__item"><a class="nav__link" data-tab="business">BUSINESS</a></li>
+        <li class="nav__item"><a class="nav__link" data-tab="contact">CONTACT US</a></li>
       </ul>
     </nav>
-
     <a class="header__cta" data-tab="contact">견적 문의</a>
     <button class="hamburger" id="hamburger" aria-label="메뉴">
       <span></span><span></span><span></span>
     </button>
-
   </div>
 </header>
 
-<!-- ══ MAIN (페이지 컨텐츠가 JS로 동적 로드됩니다) ══ -->
-<main class="main" id="mainContent"></main>
+<!-- ══ MAIN ══ -->
+<main class="main" id="mainContent">
+<section class="page" id="page-home">
+
+    <!-- 히어로 슬라이더 -->
+    <div class="hero">
+      <div class="hero__slides" id="heroSlides">
+        <div class="hero__slide active" style="background-image:url('img/banner1.jpg')"></div>
+        <div class="hero__slide"        style="background-image:url('img/banner2.jpg')"></div>
+        <div class="hero__slide"        style="background-image:url('img/banner3.jpg')"></div>
+      </div>
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <span class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          IoT Total Service
+        </span>
+        <h1 class="hero__title">
+          <span class="hero__title-line">스마트 사회를 위한</span>
+          <span class="hero__title-line hero__title-line--accent"><em>IoT 통합 솔루션</em></span>
+        </h1>
+        <p class="hero__desc">
+          엔시드는 다년간의 CCTV 통합관리시스템 구축과 IoT 솔루션 제공 경험을 바탕으로
+          고객의 비즈니스 환경에 최적화된 Total 서비스를 제공하는 전문 기업입니다.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" data-tab="business">
+            사업분야 보기
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn--outline" data-tab="contact">견적 문의하기</a>
+        </div>
+      </div>
+
+      <div class="hero__controls">
+        <button class="hero__prev" id="heroPrev" aria-label="이전">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="hero__dots" id="heroDots">
+          <span class="hero__dot active"></span>
+          <span class="hero__dot"></span>
+          <span class="hero__dot"></span>
+        </div>
+        <button class="hero__next" id="heroNext" aria-label="다음">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <div class="hero__scroll">
+        <span>SCROLL</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </div>
+
+    <!-- 통계 카운터 -->
+    <div class="stats">
+      <div class="stats__inner">
+        <div class="stats__item fade-up">
+          <div class="stats__num-wrap">
+            <span class="stats__number" data-target="10">0</span><span class="stats__suffix">년+</span>
+          </div>
+          <p class="stats__label">업력</p>
+        </div>
+        <div class="stats__item fade-up" style="--delay:80ms">
+          <div class="stats__num-wrap">
+            <span class="stats__number" data-target="30">0</span><span class="stats__suffix">개+</span>
+          </div>
+          <p class="stats__label">주요 고객사 · 협력사</p>
+        </div>
+        <div class="stats__item fade-up" style="--delay:160ms">
+          <div class="stats__num-wrap">
+            <span class="stats__number" data-target="8">0</span><span class="stats__suffix">건+</span>
+          </div>
+          <p class="stats__label">인증 · 특허</p>
+        </div>
+        <div class="stats__item fade-up" style="--delay:240ms">
+          <div class="stats__num-wrap">
+            <span class="stats__number" data-target="8">0</span><span class="stats__suffix">종</span>
+          </div>
+          <p class="stats__label">보유 제품</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 사업분야 -->
+    <div class="sec sec--gray">
+      <div class="sec__head fade-up">
+        <span class="sec__tag">BUSINESS</span>
+        <h2 class="sec__title">사업분야</h2>
+        <p class="sec__desc">시스템 통합부터 IoT R&amp;D까지,<br/>고객 맞춤형 IT 서비스를 제공합니다</p>
+      </div>
+      <div class="sec__body">
+        <!-- HTML/CSS 다이어그램 -->
+        <div class="biz-cards">
+          <div class="biz-cards__item fade-up" style="--delay:0ms">
+            <div class="biz-cards__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="9" height="9" rx="2"/><rect x="13" y="2" width="9" height="9" rx="2"/><rect x="2" y="13" width="9" height="9" rx="2"/><rect x="13" y="13" width="9" height="9" rx="2"/></svg>
+            </div>
+            <h4>시스템 통합</h4>
+            <p>H/W · S/W · N/W 통합 구축<br/>검증된 방법론 기반 시스템 통합<br/>고객사 맞춤형 IT 인프라 설계</p>
+          </div>
+          <div class="biz-cards__item fade-up" style="--delay:60ms">
+            <div class="biz-cards__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4>컨설팅 서비스</h4>
+            <p>공공·정부기관 및 기업 대상<br/>자체 방법론 기반 IT 전략 수립<br/>고객 밀착형 비즈니스 프로세스 지원</p>
+          </div>
+          <div class="biz-cards__item fade-up" style="--delay:120ms">
+            <div class="biz-cards__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h4>유지관리</h4>
+            <p>시스템 운영 및 유지보수<br/>장애처리 · AS · 기술지원<br/>신기술 적용 서비스 지원</p>
+          </div>
+          <div class="biz-cards__item fade-up" style="--delay:180ms">
+            <div class="biz-cards__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h4>R&amp;D 개발</h4>
+            <p>IoT 단말 제품 개발<br/>LoRa · AI · 스마트 IoT 연구<br/>신규 플랫폼 개발 및 상용화</p>
+          </div>
+          <div class="biz-cards__item fade-up" style="--delay:240ms">
+            <div class="biz-cards__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <h4>H/W · S/W 판매</h4>
+            <p>최적 구성 하드웨어 공급<br/>소프트웨어 라이선스 제공<br/>고객 생산성 극대화 솔루션</p>
+          </div>
+        </div>
+        <div class="sec__cta">
+          <a class="btn btn--ghost" data-tab="business" data-sub="businessarea">사업분야 자세히 보기</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 주요 제품 -->
+    <div class="sec sec--white">
+      <div class="sec__head fade-up">
+        <span class="sec__tag">PRODUCT</span>
+        <h2 class="sec__title">주요 제품</h2>
+        <p class="sec__desc">공공안전과 스마트 인프라를 위한<br/>엔시드의 핵심 제품라인</p>
+      </div>
+      <div class="sec__body">
+        <div class="product-grid">
+          <div class="product-card product-card--featured fade-up" style="--delay:0ms">
+            <div class="product-card__bg" style="background-image:url('img/product1.jpg')"></div>
+            <div class="product-card__badge">대표 제품</div>
+            <div class="product-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>함체관리시스템<br/><em>NS-FMMS</em></h3>
+            <p>GIS 기반 CCTV 시설물 통합관리 솔루션. 실시간 원격 모니터링 및 인가된 사용자 함체 개폐 제어</p>
+            <span class="product-card__tag">GS인증</span>
+          </div>
+          <div class="product-card fade-up" style="--delay:60ms">
+            <div class="product-card__bg" style="background-image:url('img/product2.jpg')"></div>
+            <div class="product-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>지능형 소화전<br/><em>IFS</em></h3>
+            <p>IoT 기술 기반 소화전 실시간 상태 관리 및 불법 주정차 방지 시스템</p>
+            <span class="product-card__tag">특허 보유</span>
+          </div>
+          <div class="product-card fade-up" style="--delay:120ms">
+            <div class="product-card__bg" style="background-image:url('img/product3.jpg')"></div>
+            <div class="product-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>영상기기 관제<br/><em>IoT-X</em></h3>
+            <p>DVR/NVR · CCTV 연동 원격 장애관리 및 실시간 상태 모니터링 시스템</p>
+            <span class="product-card__tag">IoT 연동</span>
+          </div>
+          <div class="product-card fade-up" style="--delay:180ms">
+            <div class="product-card__bg" style="background-image:url('img/product4.jpg')"></div>
+            <div class="product-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>CCTV 마스킹<br/>시스템</h3>
+            <p>영상정보 열람·반출 시 개인정보 보호를 위한 모자이크 및 반출 보안 처리</p>
+            <span class="product-card__tag">보안 솔루션</span>
+          </div>
+          <div class="product-card fade-up" style="--delay:240ms">
+            <div class="product-card__bg" style="background-image:url('img/product5.jpg')"></div>
+            <div class="product-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+            </div>
+            <h3>패스워드<br/>솔루션</h3>
+            <p>시스템 패스워드 관리 규제지침 준수를 위한 비밀번호 발급·관리 보안 솔루션</p>
+            <span class="product-card__tag">보안 인증</span>
+          </div>
+          <div class="product-card fade-up" style="--delay:300ms">
+            <div class="product-card__bg" style="background-image:url('img/product6.jpg')"></div>
+            <div class="product-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3>SERVER</h3>
+            <p>고객의 경제성을 고려한 최적 구성의 안전성·유연성 갖춘 고성능 서버</p>
+            <span class="product-card__tag">고성능</span>
+          </div>
+        </div>
+        <div class="sec__cta">
+          <a class="btn btn--ghost" data-tab="product">주요 제품 자세히 보기</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 주요 소식 -->
+    <div class="sec sec--news-light">
+      <div class="sec__head fade-up">
+        <span class="sec__tag">NEWS</span>
+        <h2 class="sec__title">주요 소식</h2>
+        <p class="sec__desc">엔시드의 최신 소식과 성과를 전달합니다</p>
+      </div>
+      <div class="sec__body">
+        <div class="news-grid">
+          <a class="news-card fade-up" style="--delay:0ms"
+             href="https://www.donga.com/news/article/all/20230314/118314487/1"
+             target="_blank" rel="noopener">
+            <div class="news-card__inner">
+              <span class="news-card__date">2023. 03. 14</span>
+              <h4>지능형 소화전으로 불법 주정차 막는다</h4>
+              <p>서울소방본부와 함께 진행한 지능형 소화전 관리시스템 구축을 완료하고 서울시 전체로 확대 추진 예정</p>
+              <span class="news-card__source">
+                동아일보
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </span>
+            </div>
+          </a>
+          <a class="news-card fade-up" style="--delay:80ms"
+             href="http://www.enewstoday.co.kr"
+             target="_blank" rel="noopener">
+            <div class="news-card__inner">
+              <span class="news-card__date">2023. 02. 20</span>
+              <h4>서울소방재난본부와 IoT 소화전 시범사업 진행</h4>
+              <p>종로 창신·부암동 일대 소화전 관리시스템 구축. 불법 주정차 차단 및 소화용수 실시간 원격 모니터링</p>
+              <span class="news-card__source">
+                이뉴스투데이
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </span>
+            </div>
+          </a>
+          <a class="news-card fade-up" style="--delay:160ms"
+             href="http://www.koit.co.kr/news/articleView.html?idxno=87681"
+             target="_blank" rel="noopener">
+            <div class="news-card__inner">
+              <span class="news-card__date">2023. 02. 20</span>
+              <h4>CCTV 스마트함체 관리시스템으로 선두기업 발돋움</h4>
+              <p>전국 지자체 공공기관 납품을 통해 제품의 우수성을 인정받으며 원격관리 분야 선두주자로 자리매김</p>
+              <span class="news-card__source">
+                정보통신신문
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+<section class="page" id="page-product"><div class="empty-page"><h2 class="empty-page__title">PRODUCT</h2></div></section>
+<section class="page" id="page-business">
+
+    <!-- 서브 네비 -->
+    <nav class="sub-nav">
+      <div class="sub-nav__inner">
+        <button class="sub-nav__btn active" data-sub="businessarea">사업분야</button>
+        <button class="sub-nav__btn" data-sub="partners">주요고객 및 협력사</button>
+        <button class="sub-nav__btn" data-sub="certificate">인증 및 특허</button>
+        <button class="sub-nav__btn" data-sub="rnd">R&amp;D</button>
+      </div>
+    </nav>
+
+    <!-- ── 사업분야 ── -->
+    <div class="biz-sec biz-sec--gray" id="sub-businessarea">
+      <div class="biz-sec__head fade-up">
+        <span class="sec__tag">BUSINESS AREA</span>
+        <h2 class="sec__title">사업분야</h2>
+        <p class="sec__desc">엔시드는 다년간의 CCTV 통합관리시스템 구축과 IoT 솔루션 제공 경험을 바탕으로<br/>고객의 비즈니스 환경에 최적화된 Total 서비스를 제공합니다</p>
+      </div>
+      <div class="biz-sec__body">
+
+        <!-- 상세 카드 -->
+        <div class="ba-detail">
+          <!-- 상단 2개 -->
+          <div class="ba-detail__card fade-up" style="--delay:0ms">
+            <p class="ba-detail__title">시스템 통합 서비스</p>
+            <ul class="ba-detail__list">
+              <li>고객의 경영전략 및 업무를 효과적으로 지원하는 시스템 개발 및 통합</li>
+              <li>H/W, S/W, N/W 통합 구축</li>
+              <li>검증된 방법론 기반으로 고객사 시스템 통합</li>
+            </ul>
+          </div>
+          <div class="ba-detail__card fade-up" style="--delay:60ms">
+            <p class="ba-detail__title">컨설팅 서비스</p>
+            <ul class="ba-detail__list">
+              <li>자체 방법론 기반으로 공공/정부기관 및 기업의 컨설팅</li>
+              <li>고객사 비즈니스 프로세스 기반, 고객 밀착형 IT서비스 제공</li>
+            </ul>
+          </div>
+          <!-- 하단 3개 -->
+          <div class="ba-detail__row2">
+            <div class="ba-detail__card fade-up" style="--delay:120ms">
+              <p class="ba-detail__title">유지관리부문</p>
+              <ul class="ba-detail__list">
+                <li>시스템 관리 및 운영, 유지보수</li>
+                <li>장애처리 및 AS유지보수</li>
+                <li>기술지원 및 향후 신기술 적용 등 서비스지원</li>
+              </ul>
+            </div>
+            <div class="ba-detail__card fade-up" style="--delay:180ms">
+              <p class="ba-detail__title">R&amp;D Solution 개발 및 판매</p>
+              <ul class="ba-detail__list">
+                <li>IoT 단말 제품 개발 및 Solution 개발</li>
+                <li>LoRa 관련 Solution 개발</li>
+              </ul>
+            </div>
+            <div class="ba-detail__card fade-up" style="--delay:240ms">
+              <p class="ba-detail__title">H/W, S/W 판매</p>
+              <ul class="ba-detail__list">
+                <li>시스템 관리 및 운영, 유지보수</li>
+                <li>장애처리 및 AS유지보수</li>
+                <li>기술지원 및 향후 신기술 적용 등 서비스지원</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 주요고객 및 협력사 ── -->
+    <div class="biz-sec biz-sec--white" id="sub-partners">
+      <div class="biz-sec__head fade-up">
+        <span class="sec__tag">PARTNERS</span>
+        <h2 class="sec__title">주요고객 및 협력사</h2>
+        <p class="sec__desc">공공기관, 지자체, 대기업 등 다양한 분야의 고객사와 함께합니다</p>
+      </div>
+      <div class="biz-sec__body">
+
+        <!-- 공공기관 · 지자체 -->
+        <div class="partner-section fade-up">
+          <p class="partner-section__title">PUBLIC · GOVERNMENT</p>
+          <div class="partner-grid">
+            <div class="partner-card" data-name="영등포구"><img src="img/partner_list01.jpg" alt="영등포구" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>영등포구</span>'"/></div>
+            <div class="partner-card" data-name="경북"><img src="img/partner_list02.jpg" alt="경북" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>경북</span>'"/></div>
+            <div class="partner-card" data-name="포항시"><img src="img/partner_list03.jpg" alt="포항시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>포항시</span>'"/></div>
+            <div class="partner-card" data-name="군포시"><img src="img/partner_list08.jpg" alt="군포시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>군포시</span>'"/></div>
+            <div class="partner-card" data-name="평택시"><img src="img/partner_list09.jpg" alt="평택시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>평택시</span>'"/></div>
+            <div class="partner-card" data-name="강서구"><img src="img/partner_list11.jpg" alt="강서구" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>강서구</span>'"/></div>
+            <div class="partner-card" data-name="군산시"><img src="img/partner_list15.jpg" alt="군산시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>군산시</span>'"/></div>
+            <div class="partner-card" data-name="달서구"><img src="img/partner_list17.jpg" alt="달서구" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>달서구</span>'"/></div>
+            <div class="partner-card" data-name="전주시"><img src="img/partner_list18.jpg" alt="전주시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>전주시</span>'"/></div>
+            <div class="partner-card" data-name="김제시"><img src="img/partner_list19.jpg" alt="김제시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>김제시</span>'"/></div>
+            <div class="partner-card" data-name="강원도"><img src="img/partner_list22.jpg" alt="강원도" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>강원도</span>'"/></div>
+            <div class="partner-card" data-name="익산시"><img src="img/partner_list23.jpg" alt="익산시" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>익산시</span>'"/></div>
+            <div class="partner-card" data-name="춘향남원"><img src="img/partner_list24.jpg" alt="춘향남원" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>춘향남원</span>'"/></div>
+            <div class="partner-card" data-name="경상남도소방본부"><img src="img/partner_list10.jpg" alt="경상남도소방본부" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>경남소방</span>'"/></div>
+            <div class="partner-card" data-name="충청북도소방본부"><img src="img/partner_list13.jpg" alt="충청북도소방본부" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>충북소방</span>'"/></div>
+            <div class="partner-card" data-name="부산교통공사"><img src="img/partner_list12.jpg" alt="부산교통공사" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>부산교통공사</span>'"/></div>
+          </div>
+        </div>
+
+        <!-- 기업 · 공기업 -->
+        <div class="partner-section fade-up">
+          <p class="partner-section__title">ENTERPRISE · PUBLIC CORPORATION</p>
+          <div class="partner-grid">
+            <div class="partner-card" data-name="LG화학"><img src="img/partner_list05.jpg" alt="LG화학" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>LG화학</span>'"/></div>
+            <div class="partner-card" data-name="강원랜드"><img src="img/partner_list06.jpg" alt="강원랜드" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>강원랜드</span>'"/></div>
+            <div class="partner-card" data-name="LG U+"><img src="img/partner_list07.jpg" alt="LG U+" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>LG U+</span>'"/></div>
+            <div class="partner-card" data-name="한국수력원자력"><img src="img/partner_list16.jpg" alt="한국수력원자력" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>한수원</span>'"/></div>
+            <div class="partner-card" data-name="한국토지주택공사"><img src="img/partner_list20.jpg" alt="한국토지주택공사" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>LH</span>'"/></div>
+            <div class="partner-card" data-name="SK hynix"><img src="img/partner_list21.jpg" alt="SK hynix" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>SK하이닉스</span>'"/></div>
+          </div>
+        </div>
+
+        <!-- 협력사 -->
+        <div class="partner-section fade-up">
+          <p class="partner-section__title">PARTNERS</p>
+          <div class="partner-grid">
+            <div class="partner-card" data-name="passnet"><img src="img/partner_list04.jpg" alt="passnet" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>Passnet</span>'"/></div>
+            <div class="partner-card" data-name="곤지암"><img src="img/partner_list14.jpg" alt="곤지암" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>곤지암</span>'"/></div>
+            <div class="partner-card" data-name="코오롱베니트"><img src="img/partner_list25.jpg" alt="코오롱베니트" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>코오롱베니트</span>'"/></div>
+            <div class="partner-card" data-name="SECUI"><img src="img/partner_list26.jpg" alt="SECUI" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>SECUI</span>'"/></div>
+            <div class="partner-card" data-name="에스원"><img src="img/partner_list27.jpg" alt="에스원" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>에스원</span>'"/></div>
+            <div class="partner-card" data-name="동부CNI"><img src="img/partner_list28.jpg" alt="동부CNI" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>동부CNI</span>'"/></div>
+            <div class="partner-card" data-name="JMsys"><img src="img/partner_list29.jpg" alt="JMsys" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>JMsys</span>'"/></div>
+            <div class="partner-card" data-name="Inodep"><img src="img/partner_list30.jpg" alt="Inodep" onerror="this.closest('.partner-card').innerHTML='<span style=\'font-size:12px;font-weight:600;color:var(--gray-600)\'>Inodep</span>'"/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 인증 및 특허 ── -->
+    <div class="biz-sec biz-sec--gray" id="sub-certificate">
+      <div class="biz-sec__head fade-up">
+        <span class="sec__tag">CERTIFICATE &amp; PATENT</span>
+        <h2 class="sec__title">인증 및 특허</h2>
+        <p class="sec__desc">엔시드의 기술력을 증명하는 각종 인증 및 특허 현황입니다</p>
+      </div>
+      <div class="biz-sec__body">
+        <div class="cert-grid">
+          <div class="cert-card fade-up" style="--delay:0ms">
+            <img src="img/cert01.png" alt="특허증 지능형소화전" class="cert-card__img"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="cert-card__placeholder" style="display:none">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>이미지 준비중</span>
+            </div>
+            <div class="cert-card__info">
+              <span class="cert-card__type">PATENT</span>
+              <p class="cert-card__name">특허증<br/>지능형 소화전</p>
+            </div>
+          </div>
+          <div class="cert-card fade-up" style="--delay:60ms">
+            <img src="img/cert02.png" alt="특허증 보관함 개폐" class="cert-card__img"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="cert-card__placeholder" style="display:none">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>이미지 준비중</span>
+            </div>
+            <div class="cert-card__info">
+              <span class="cert-card__type">PATENT</span>
+              <p class="cert-card__name">특허증<br/>보관함 개폐 관리 장치</p>
+            </div>
+          </div>
+          <div class="cert-card fade-up" style="--delay:120ms">
+            <img src="img/cert03.png" alt="조달청 새싹기업" class="cert-card__img"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="cert-card__placeholder" style="display:none">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>이미지 준비중</span>
+            </div>
+            <div class="cert-card__info">
+              <span class="cert-card__type">CERTIFICATE</span>
+              <p class="cert-card__name">조달청<br/>새싹기업 지정증서</p>
+            </div>
+          </div>
+          <div class="cert-card fade-up" style="--delay:180ms">
+            <img src="img/cert04.png" alt="소프트웨어 품질인증서" class="cert-card__img"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="cert-card__placeholder" style="display:none">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>이미지 준비중</span>
+            </div>
+            <div class="cert-card__info">
+              <span class="cert-card__type">CERTIFICATE</span>
+              <p class="cert-card__name">소프트웨어<br/>품질인증서</p>
+            </div>
+          </div>
+          <div class="cert-card fade-up" style="--delay:240ms">
+            <img src="img/cert05.png" alt="벤처확인서" class="cert-card__img"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="cert-card__placeholder" style="display:none">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>이미지 준비중</span>
+            </div>
+            <div class="cert-card__info">
+              <span class="cert-card__type">CERTIFICATE</span>
+              <p class="cert-card__name">벤처확인서</p>
+            </div>
+          </div>
+          <div class="cert-card fade-up" style="--delay:300ms">
+            <img src="img/cert06.png" alt="ISO 14001" class="cert-card__img"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="cert-card__placeholder" style="display:none">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>이미지 준비중</span>
+            </div>
+            <div class="cert-card__info">
+              <span class="cert-card__type">ISO</span>
+              <p class="cert-card__name">ISO 14001:2015</p>
+            </div>
+          </div>
+          <div class="cert-card fade-up" style="--delay:360ms">
+            <img src="img/cert07.png" alt="ISO 9001" class="cert-card__img"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="cert-card__placeholder" style="display:none">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>이미지 준비중</span>
+            </div>
+            <div class="cert-card__info">
+              <span class="cert-card__type">ISO</span>
+              <p class="cert-card__name">ISO 9001:2015</p>
+            </div>
+          </div>
+          <div class="cert-card fade-up" style="--delay:420ms">
+            <img src="img/cert08.png" alt="Inno-Biz" class="cert-card__img"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="cert-card__placeholder" style="display:none">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>이미지 준비중</span>
+            </div>
+            <div class="cert-card__info">
+              <span class="cert-card__type">CERTIFICATE</span>
+              <p class="cert-card__name">Inno-Biz 인증서</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── R&D ── -->
+    <div class="biz-sec biz-sec--navy" id="sub-rnd">
+      <div class="biz-sec__head fade-up">
+        <span class="sec__tag sec__tag--light">R&amp;D</span>
+        <h2 class="sec__title sec__title--light">연구개발</h2>
+        <p class="sec__desc sec__desc--light">엔시드는 2015년 연구전담 개발부서를 설립하여<br/>지속적인 기술 혁신과 신제품 개발에 힘쓰고 있습니다</p>
+      </div>
+      <div class="biz-sec__body">
+
+        <div class="rnd-intro fade-up">
+          <p>고객의 Needs에 맞추어 내실 있고, 기업의 지속적인 성장을 위하여 연구 개발 및 상용화를 진행 중입니다. 미래의 핵심 산업인 스마트 IoT, 비대면 솔루션, 인공지능 등 신기술·신제품을 연구하며 신규 아이템 개발을 위한 플랫폼을 마련 중입니다.</p>
+        </div>
+
+        <div class="rnd-grid">
+          <div class="rnd-card fade-up" style="--delay:0ms">
+            <div class="rnd-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4>CCTV 통합관리</h4>
+            <p>GIS 기반 CCTV 시설물 통합관리 및 스마트 함체 보안 시스템 연구개발</p>
+          </div>
+          <div class="rnd-card fade-up" style="--delay:80ms">
+            <div class="rnd-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h4>IoT 지능형 소화전</h4>
+            <p>IoT 기술을 활용한 소화전 실시간 모니터링 및 불법 주정차 방지 솔루션 개발</p>
+          </div>
+          <div class="rnd-card fade-up" style="--delay:160ms">
+            <div class="rnd-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h4>영상정보 보안</h4>
+            <p>CCTV 영상정보 반출 관리 · 모자이크 처리 및 개인정보 보호 솔루션 연구</p>
+          </div>
+          <div class="rnd-card fade-up" style="--delay:240ms">
+            <div class="rnd-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h4>스마트 IoT 플랫폼</h4>
+            <p>LoRa 기반 IoT 단말 제품 개발 및 실시간 모니터링 장애관리 플랫폼 구축</p>
+          </div>
+          <div class="rnd-card fade-up" style="--delay:320ms">
+            <div class="rnd-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h4>AI · 비대면 솔루션</h4>
+            <p>인공지능 기반 영상 분석 및 비대면 서비스 연구, 신기술 적용 솔루션 개발</p>
+          </div>
+          <div class="rnd-card fade-up" style="--delay:400ms">
+            <div class="rnd-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4>사회안전망 시스템</h4>
+            <p>공공 안전 인프라 강화를 위한 사회안전망 시스템 연구 및 솔루션 개발</p>
+          </div>
+        </div>
+
+        <!-- 연혁 타임라인 -->
+        <div class="rnd-timeline fade-up">
+          <p class="rnd-timeline__title">RESEARCH HISTORY</p>
+          <div class="timeline-list">
+            <div class="timeline-item">
+              <span class="timeline-year">2015</span>
+              <div class="timeline-line"></div>
+              <div class="timeline-content"><p>연구전담 개발부서 설립 · 벤처기업 인증</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2016</span>
+              <div class="timeline-line"></div>
+              <div class="timeline-content"><p>산학연기술개발사업 선정 · 공장등록</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2017</span>
+              <div class="timeline-line"></div>
+              <div class="timeline-content"><p>NS-FMMS v3.0 GS인증 획득 · 조달청 새싹기업 선정</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2018</span>
+              <div class="timeline-line"></div>
+              <div class="timeline-content"><p>IoT 스마트 소화전 특허 등록 · ISO 9001/14001 인증 · 이노비즈 인증</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2020</span>
+              <div class="timeline-line"></div>
+              <div class="timeline-content"><p>산학협력 거점형 통합플랫폼 사업 선정 · 개인하수처리시설 관리시스템 특허</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2021</span>
+              <div class="timeline-line"></div>
+              <div class="timeline-content"><p>첨단기술활용 공공서비스 촉진사업 선정 (지능형 소화전)</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2023</span>
+              <div class="timeline-line"></div>
+              <div class="timeline-content"><p>지능형 비상 소화 장치 특허 등록</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2025</span>
+              <div class="timeline-line"></div>
+              <div class="timeline-content"><p>IOT센서 전주 감지 시스템 특허 · K마크 인증 · ISO 9001 갱신</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+<section class="page" id="page-contact">
+
+    <div class="contact-wrap">
+
+      <!-- 헤더 -->
+      <div class="contact-hero fade-up">
+        <span class="sec__tag">CONTACT US</span>
+        <h2 class="contact-hero__title">견적 및 상담 문의</h2>
+        <p class="contact-hero__desc">제품 도입, 기술 문의, 견적 요청 등 궁금하신 사항을 남겨주시면<br/>빠른 시일 내에 담당자가 연락드리겠습니다.</p>
+      </div>
+
+      <div class="contact-body">
+
+        <!-- 사이드바 + 폼 래퍼 -->
+        <div class="contact-layout fade-up">
+
+        <!-- 왼쪽 사이드바 -->
+        <aside class="contact-sidebar">
+          <div class="csb__inner">
+            <div class="csb__brand">
+              <img src="img/ft_logo.png" alt="엔시드" class="csb__logo-img"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <span class="csb__logo-fallback">
+                <span class="csb__logo-mark">N</span>
+                <span class="csb__logo-text">NSID</span>
+              </span>
+            </div>
+            <div class="csb__items">
+              <div class="csb__item">
+                <div class="csb__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg></div>
+                <div>
+                  <p class="csb__item-label">대표전화</p>
+                  <p class="csb__item-value">031-8091-0381</p>
+                </div>
+              </div>
+              <div class="csb__item">
+                <div class="csb__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+                <div>
+                  <p class="csb__item-label">팩스</p>
+                  <p class="csb__item-value">031-5176-0690</p>
+                </div>
+              </div>
+              <div class="csb__item">
+                <div class="csb__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <div>
+                  <p class="csb__item-label">주소</p>
+                  <p class="csb__item-value">경기 안양시 동안구<br/>엘에스로116번길 25-32<br/>안양 SK V1 center 605호</p>
+                </div>
+              </div>
+              <div class="csb__item">
+                <div class="csb__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div>
+                  <p class="csb__item-label">운영시간</p>
+                  <p class="csb__item-value">평일 09:00 – 18:00<br/><span class="csb__item-note">점심 12:00 – 13:00<br/>주말·공휴일 휴무</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="csb__note">
+              문의 접수 후 영업일 기준<br/><strong>1–2일 내</strong> 담당자가 연락드립니다.
+            </div>
+          </div>
+        </aside>
+
+        <!-- 문의 폼 -->
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contactForm" onsubmit="return false;">
+
+            <!-- 문의 유형 + 제목 (상단 강조 행) -->
+            <div class="cf-title-bar">
+              <div class="cf-field cf-field--type">
+                <label class="cf-label">문의 유형 <span class="cf-required">*</span></label>
+                <select class="cf-input cf-select" id="fType">
+                  <option value="" disabled selected>선택</option>
+                  <option value="estimate">견적 문의</option>
+                  <option value="consult">기술 상담</option>
+                  <option value="product">제품 문의</option>
+                  <option value="etc">기타</option>
+                </select>
+              </div>
+              <div class="cf-field cf-field--title">
+                <label class="cf-label">제목 <span class="cf-required">*</span></label>
+                <input class="cf-input" type="text" id="fTitle" placeholder="문의 제목을 입력해주세요"/>
+              </div>
+            </div>
+
+            <!-- 작성자 정보 (2열) -->
+            <div class="cf-row">
+              <div class="cf-field">
+                <label class="cf-label">회사명</label>
+                <input class="cf-input" type="text" id="fCompany" placeholder="회사명을 입력해주세요"/>
+              </div>
+              <div class="cf-field">
+                <label class="cf-label">작성자 <span class="cf-required">*</span></label>
+                <input class="cf-input" type="text" id="fName" placeholder="이름을 입력해주세요"/>
+              </div>
+              <div class="cf-field">
+                <label class="cf-label">연락처 <span class="cf-required">*</span></label>
+                <input class="cf-input" type="tel" id="fTel" placeholder="010-0000-0000"/>
+              </div>
+              <div class="cf-field">
+                <label class="cf-label">이메일</label>
+                <input class="cf-input" type="email" id="fEmail" placeholder="이메일을 입력해주세요"/>
+              </div>
+            </div>
+
+            <!-- 문의 내용 -->
+            <div class="cf-field">
+              <div class="cf-label-row">
+                <label class="cf-label">문의 내용 <span class="cf-required">*</span></label>
+                <span class="cf-char-counter"><span id="fContentCount">0</span> / 300</span>
+              </div>
+              <textarea class="cf-input cf-textarea" id="fContent" placeholder="문의 내용을 자세히 입력해주세요" maxlength="300"></textarea>
+            </div>
+
+            <!-- 첨부파일 -->
+            <div class="cf-field">
+              <label class="cf-label">첨부파일</label>
+              <label class="cf-file-zone" id="fileLabelBox">
+                <input type="file" class="contact-form__file-input" id="fileInput" multiple accept="*/*" onchange="handleFileChange(this)"/>
+                <span class="cf-file-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66L9.41 17.41a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                </span>
+                <span class="cf-file-text" id="fileText">파일을 여기에 드래그하거나 클릭해서 선택하세요</span>
+                <span class="cf-file-btn">파일 선택</span>
+              </label>
+              <div class="contact-form__file-list" id="fileList"></div>
+            </div>
+
+            <!-- 구분선 -->
+            <div class="cf-divider"></div>
+
+            <!-- 개인정보 동의 + 버튼 -->
+            <div class="cf-footer">
+              <label class="cf-privacy-toggle">
+                <input type="checkbox" class="cf-checkbox" id="privacyAgree"/>
+                <span class="cf-privacy-toggle__box">
+                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 6 4.5 9 10.5 3"/></svg>
+                </span>
+                <span class="cf-privacy-toggle__text">개인정보 수집 및 이용에 동의합니다.</span>
+                <a class="cf-privacy-toggle__link" href="#" onclick="event.preventDefault(); openPrivacyModal(); this.blur()">(내용 보기)</a>
+              </label>
+              <button type="submit" class="btn btn--primary cf-submit-btn" id="contactSubmitBtn" disabled>
+                문의 보내기
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        </div><!-- /contact-layout -->
+
+      </div>
+    </div>
+
+  </section>
+
+<section class="page" id="page-privacy">
+    <div class="policy-wrap">
+      <div class="policy__head">
+        <span class="sec__tag">PRIVACY POLICY</span>
+        <h2 class="policy__title">개인정보처리방침</h2>
+      </div>
+      <div class="policy__body">
+        <div class="policy__block">
+          <p>엔시드(이하 회사)는 개인정보보호법에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다. 회사는 개인정보처리방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.</p>
+        </div>
+        <div class="policy__block">
+          <h3>1. 개인정보 수집 및 이용 목적</h3>
+          <p>회사는 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 다음의 목적이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.</p>
+          <p><strong>가. 홈페이지 회원가입 및 관리</strong><br/>회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 제한적 본인확인제 시행에 따른 본인확인, 서비스 부정이용 방지, 각종 고지·통지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.</p>
+          <p><strong>나. 민원사무 처리</strong><br/>민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.</p>
+          <p><strong>다. 재화 또는 서비스 제공</strong><br/>물품배송, 서비스 제공, 청구서 발송, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증, 연령인증, 요금결제·정산 등을 목적으로 개인정보를 처리합니다.</p>
+          <p><strong>라. 마케팅 및 광고에의 활용</strong><br/>신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공, 인구통계학적 특성에 따른 서비스 제공 및 광고 게재, 서비스의 유효성 확인, 접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.</p>
+        </div>
+        <div class="policy__block">
+          <h3>2. 수집하는 개인정보의 항목 및 수집방법</h3>
+          <p><strong>가. 수집 항목</strong></p>
+          <p><strong>가-1. 회원 가입 시 수집항목</strong></p>
+          <ul>
+            <li>필수항목 : 이름, 성별, 로그인ID, 비밀번호, 이메일, 생년월일, 주소, 휴대폰번호</li>
+            <li>선택항목 : 자택번호, SMS 수신동의, 이메일 수신동의</li>
+            <li>수집목적 : 회원특정 및 고지사항 전달, 본인의사 확인 및 불만처리 등 원활한 의사소통 경로의 확보</li>
+          </ul>
+          <p><strong>가-2. 자동 수집</strong></p>
+          <ul>
+            <li>접속 IP 정보, 쿠키, 서비스 이용 기록, 접속로그 등</li>
+          </ul>
+          <p><strong>가-3. 기타 (이벤트나 마케팅 활동 등)</strong></p>
+          <ul>
+            <li>수집정보 : 주소, 생년월일, 전화번호, 휴대폰번호, 이름, 이메일 등</li>
+            <li>그 외 특정 목적을 위해 단기적으로 개인정보를 수집할 경우에는 별도로 공지하고 수집합니다.</li>
+          </ul>
+          <p><strong>나. 수집 방법</strong></p>
+          <ul>
+            <li>홈페이지(회원가입), 서면양식, 전화, 팩스, 상담게시판, 이벤트응모, 서비스이용, 회원정보 수정</li>
+          </ul>
+        </div>
+        <div class="policy__block">
+          <h3>3. 개인정보 수집에 대한 동의</h3>
+          <p>회사는 귀하께서 회사의 개인정보취급방침 또는 이용약관의 내용에 대해 「동의함」 버튼을 체크할 수 있는 절차를 마련하여, 「동의함」버튼을 체크하면 개인정보 수집에 대해 동의한 것으로 봅니다.</p>
+        </div>
+        <div class="policy__block">
+          <h3>4. 개인정보 자동 수집 장치의 설치·운영 및 거부에 관한 사항</h3>
+          <p>개별적인 맞춤서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용합니다. 쿠키는 웹사이트를 운영하는데 이용되는 서버(http)가 이용자의 컴퓨터 브라우저에게 보내는 소량의 정보이며 이용자들의 PC 컴퓨터내의 하드디스크에 저장되기도 합니다.</p>
+          <ul>
+            <li>쿠키의 사용 목적 : 이용자가 방문한 각 서비스와 웹 사이트들에 대한 방문 및 이용형태, 인기 검색어, 보안접속 여부 등을 파악하여 이용자에게 최적화된 정보 제공을 위해 사용됩니다.</li>
+            <li>쿠키의 설치·운영 및 거부 : 웹브라우저 상단의 '도구&gt;인터넷 옵션&gt;개인정보' 메뉴의 옵션 설정을 통해 쿠키 저장을 거부 할 수 있습니다.</li>
+            <li>쿠키 저장을 거부할 경우 맞춤형 서비스 이용에 어려움이 발생할 수 있습니다.</li>
+          </ul>
+        </div>
+        <div class="policy__block">
+          <h3>5. 개인정보의 처리 및 보유 기간</h3>
+          <p>회사는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집시에 동의 받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다. 각각의 개인정보 처리 및 보유 기간은 다음과 같이 수집 목적 또는 제공 받은 목적이 달성되면 파기됩니다.</p>
+          <ul>
+            <li>회원가입 정보 : 회원을 탈퇴하거나 회원에서 제명된 때</li>
+            <li>설문조사, 이벤트 등 일시적 목적을 위하여 수집한 경우 : 당해 설문조사, 이벤트 등이 종료한 때</li>
+            <li>계약 또는 청약철회 등에 관한 기록 : 5년</li>
+            <li>소비자의 불만 또는 분쟁처리에 관한 기록 : 3년</li>
+          </ul>
+        </div>
+        <div class="policy__block">
+          <h3>6. 개인정보의 제3자 제공 및 공유</h3>
+          <p>회사는 이용자의 동의가 있거나 관련 법령의 규정에 의한 경우를 제외하고는 어떠한 경우에도 "개인정보의 수집항목 및 수집 목적", "개인정보의 이용목적"에서 고지한 범위를 넘어 이용자의 개인정보를 이용하거나 제3자에게 제공하지 않습니다. 다만, 다음의 경우에는 예외로 합니다.</p>
+          <ul>
+            <li>이용자들이 사전에 동의한 경우.</li>
+            <li>서비스 제공에 따른 요금정산을 위해 필요한 경우.</li>
+            <li>계약 이행을 위해 필요한 경우(제품 배송/설치, 서비스 업무)</li>
+            <li>타인에게 정신적, 물질적 피해를 줌으로써 그에 대한 법적 조치를 취하기 위해 고객정보를 공개해야 한다고 판단되는 충분한 근거가 있는 경우.</li>
+            <li>통계작성, 마케팅분석 또는 시장조사를 위해 필요한 경우로 특정 개인을 식별할 수 없는 형태로 가공하여 외부 기관 또는 단체 등에 제공하는 경우.</li>
+            <li>기타 관련 법령의 규정에 의하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우.</li>
+            <li>서비스의 제공에 관한 계약의 이행을 위하여 필요한 개인정보로서 경제적/기술적인 사유로 통상의 동의를 받는 것이 현저히 곤란한 경우.</li>
+          </ul>
+        </div>
+        <div class="policy__block">
+          <h3>7. 정보주체의 권리, 의무 및 그 행사방법</h3>
+          <p>이용자는 개인정보주체로서 다음과 같은 권리를 행사할 수 있습니다. 정보주체는 회사에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다.</p>
+          <ul>
+            <li>개인정보 열람요구</li>
+            <li>오류 등이 있을 경우 정정 요구</li>
+            <li>삭제요구</li>
+            <li>처리정지 요구</li>
+          </ul>
+          <p>권리 행사는 회사에 대해 개인정보 보호법 시행규칙 별지 제8호 서식에 따라 서면, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며 회사는 이에 대해 지체 없이 조치하겠습니다. 정보주체가 개인정보의 오류 등에 대한 정정 또는 삭제를 요구한 경우에는 회사는 정정 또는 삭제를 완료할 때까지 당해 개인정보를 이용하거나 제공하지 않습니다.</p>
+        </div>
+        <div class="policy__block">
+          <h3>8. 개인정보의 파기</h3>
+          <p>회사는 원칙적으로 개인정보 처리목적이 달성된 경우에는 지체없이 해당 개인정보를 파기합니다.</p>
+          <p><strong>가. 파기절차</strong><br/>이용자가 입력한 정보는 목적 달성 후 별도의 DB에 옮겨져(종이의 경우 별도의 서류) 내부 방침 및 기타 관련 법령에 따라 일정기간 저장된 후 혹은 즉시 파기됩니다.</p>
+          <p><strong>나. 파기기한</strong><br/>이용자의 개인정보는 개인정보의 보유기간이 경과된 경우에는 보유기간의 종료일로부터 5일 이내에, 개인정보의 처리 목적 달성, 해당 서비스의 폐지, 사업의 종료 등 그 개인정보가 불필요하게 되었을 때에는 개인정보의 처리가 불필요한 것으로 인정되는 날로부터 5일 이내에 그 개인정보를 파기합니다.</p>
+          <p><strong>다. 파기방법</strong></p>
+          <ul>
+            <li>전자적 파일 형태의 정보는 기록을 재생할 수 없는 기술적 방법을 사용합니다.</li>
+            <li>종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.</li>
+          </ul>
+        </div>
+        <div class="policy__block">
+          <h3>9. 개인정보의 안전성 확보 조치</h3>
+          <p>회사는 개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적/관리적 및 물리적 조치를 하고 있습니다.</p>
+          <ul>
+            <li><strong>개인정보 취급 직원의 최소화 및 교육 :</strong> 개인정보를 취급하는 직원을 지정하고 담당자에 한정시켜 최소화 하여 개인정보를 관리하는 대책을 시행하고 있습니다.</li>
+            <li><strong>정기적인 자체 감사 실시 :</strong> 개인정보 취급 관련 안정성 확보를 위해 정기적(분기 1회)으로 자체 감사를 실시하고 있습니다.</li>
+            <li><strong>내부관리계획의 수립 및 시행 :</strong> 개인정보의 안전한 처리를 위하여 내부관리계획을 수립하고 시행하고 있습니다.</li>
+            <li><strong>개인정보의 암호화 :</strong> 이용자의 개인정보는 비밀번호가 암호화되어 저장 및 관리되고 있으며, 중요한 데이터는 파일 및 전송 데이터를 암호화하거나 파일 잠금 기능을 사용하는 별도 보안기능을 적용하고 있습니다.</li>
+            <li><strong>해킹 등에 대비한 기술적 대책 :</strong> 보안프로그램을 설치하고 주기적인 갱신·점검을 하며 외부로부터 접근이 통제된 구역에 시스템을 설치하고 기술적/물리적으로 감시 및 차단하고 있습니다.</li>
+            <li><strong>개인정보에 대한 접근 제한 :</strong> 개인정보를 처리하는 데이터베이스시스템에 대한 접근권한의 부여·변경·말소를 통하여 접근통제를 위한 조치를 하고 있으며 침입차단시스템을 이용하여 외부로부터의 무단 접근을 통제하고 있습니다.</li>
+            <li><strong>접속기록의 보관 및 위변조 방지 :</strong> 개인정보처리시스템에 접속한 기록을 최소 6개월 이상 보관·관리하고 있으며, 접속 기록이 위변조 및 도난·분실되지 않도록 보안기능을 사용하고 있습니다.</li>
+            <li><strong>문서보안을 위한 잠금장치 사용 :</strong> 개인정보가 포함된 서류, 보조저장매체 등을 잠금장치가 있는 안전한 장소에 보관하고 있습니다.</li>
+            <li><strong>비인가자에 대한 출입 통제 :</strong> 개인정보를 보관하고 있는 물리적 보관 장소를 별도로 두고 이에 대해 출입통제 절차를 수립·운영하고 있습니다.</li>
+          </ul>
+        </div>
+        <div class="policy__block">
+          <h3>10. 개인정보 보호책임자</h3>
+          <p>회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+          <ul>
+            <li>성명 : </li>
+            <li>직책 : </li>
+            <li>소속부서 : </li>
+            <li>전화번호 : </li>
+            <li>팩스번호 : </li>
+            <li>전자우편 : </li>
+          </ul>
+          <p>정보주체께서는 회사의 서비스(또는 사업)을 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자 및 담당부서로 문의하실 수 있습니다. 회사는 정보주체의 문의에 대해 지체 없이 답변 및 처리해드릴 것입니다.</p>
+        </div>
+        <div class="policy__block">
+          <h3>11. 개인정보 처리방침 변경</h3>
+          <p>이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.</p>
+          <p><strong>본 방침은 2019년 2월 1일부터 시행됩니다.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="page" id="page-antiemail">
+    <div class="policy-wrap">
+      <div class="policy__head">
+        <span class="sec__tag">EMAIL POLICY</span>
+        <h2 class="policy__title">이메일무단수집거부</h2>
+      </div>
+      <div class="policy__body">
+        <div class="policy__block policy__block--notice">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <p>본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부하며, 이를 위반 시 정보통신망법에 의해 형사처벌됨을 유념하시기 바랍니다.</p>
+        </div>
+        <div class="policy__block">
+          <h3>관련 법령</h3>
+          <p>정보통신망 이용촉진 및 정보보호 등에 관한 법률 제50조의 2 (전자우편주소의 무단 수집행위 등 금지)</p>
+          <ul>
+            <li>누구든지 전자우편주소의 수집을 거부하는 의사가 명시된 인터넷 홈페이지에서 자동으로 전자우편주소를 수집하는 프로그램 그 밖의 기술적 장치를 이용하여 전자우편주소를 수집하여서는 아니 된다.</li>
+            <li>누구든지 제1항의 규정을 위반하여 수집된 전자우편주소를 판매·유통하여서는 아니 된다.</li>
+            <li>누구든지 제1항 및 제2항의 규정에 의하여 수집·판매 및 유통이 금지된 전자우편주소임을 알고 이를 정보 전송에 이용하여서는 아니 된다.</li>
+          </ul>
+        </div>
+        <div class="policy__block">
+          <h3>위반 시 처벌</h3>
+          <p>위 내용을 위반 시 정보통신망법 제74조에 의해 <strong>1천만원 이하의 벌금</strong>에 처해질 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <!-- ══ 경고 토스트 ══ -->
 <div class="warn-toast" id="warnToast">
@@ -77,7 +997,7 @@
   </button>
 </div>
 
-<!-- ══ 문의 전송 완료 팝업 ══ -->
+<!-- ══ 전송 완료 팝업 ══ -->
 <div class="send-modal" id="sendModal">
   <div class="send-modal__backdrop" onclick="closeSendModal()"></div>
   <div class="send-modal__box">
@@ -102,37 +1022,10 @@
       </button>
     </div>
     <div class="privacy-modal__body">
-      <div class="policy__block">
-        <h3>제1조 (개인정보 수집에 대한 동의)</h3>
-        <p>엔시드(이하 회사)는 이용자들이 회사의 개인정보취급방침 또는 이용약관의 내용에 대하여 "동의"버튼 또는 "취소"버튼을 클릭할 수 있는 절차를 마련하여, "동의"버튼을 클릭하면 개인정보 수집에 대해 동의한 것으로 봅니다.</p>
-      </div>
-      <div class="policy__block">
-        <h3>제2조 (개인정보 수집항목)</h3>
-        <p>온라인 문의를 통한 상담을 위해 처리하는 개인정보 항목은 아래와 같습니다.</p>
-        <p><strong>수집항목 :</strong> 성명, 이메일, 전화번호</p>
-      </div>
-      <div class="policy__block">
-        <h3>제3조 (개인정보의 이용목적)</h3>
-        <p>회사는 이용자의 사전 동의 없이는 이용자의 개인 정보를 공개하지 않으며, 원활한 고객상담, 각종 서비스의 제공을 위해 아래와 같이 개인정보를 수집하고 있습니다. 모든 정보는 상기 목적에 필요한 용도 이외로는 사용되지 않으며 수집 정보의 범위나 사용 목적, 용도가 변경될 시에는 반드시 사전 동의를 구할 것입니다.</p>
-        <ul>
-          <li>성명 : 제품상담에 따른 본인 확인</li>
-          <li>이메일, 전화번호 : 제품상담 및 이벤트 관련 고지사항 전달, 새로운 서비스 및 신상품 정보 제공(DM, SMS, 이메일 등 이용)</li>
-        </ul>
-        <p>이용자는 개인정보의 수집/이용에 대한 동의를 거부할 수 있습니다. 다만, 동의를 거부하는 경우 온라인 문의를 통한 상담은 불가하며 서비스 이용 및 혜택 제공에 제한을 받을 수 있습니다.</p>
-      </div>
-      <div class="policy__block">
-        <h3>제4조 (개인정보의 보유 및 이용기간)</h3>
-        <p>원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.</p>
-        <p>그리고 상법, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 관계법령에서 정한 일정한 기간 동안 정보를 보관합니다. 이 경우 회사는 보관하는 정보를 그 보관의 목적으로만 이용하며 보존기간은 아래와 같습니다.</p>
-        <ul>
-          <li>계약 또는 청약철회 등에 관한 기록 : 5년(전자상거래등에서의 소비자보호에 관한 법률)</li>
-          <li>소비자의 불만 또는 분쟁처리에 관한 기록 : 3년(전자상거래등에서의 소비자 보호에 관한 법률)</li>
-          <li>신용정보의 수집/처리 및 이용 등에 관한 기록 : 3년(신용정보의 이용 및 보호에 관한 법률)</li>
-          <li>회사는 귀중한 이용자의 개인정보를 안전하게 처리하며, 유출의 방지를 위하여 다음과 같은 방법을 통하여 개인정보를 파기합니다.</li>
-          <li>종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.</li>
-          <li>전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.</li>
-        </ul>
-      </div>
+      <div class="policy__block"><h3>제1조 (개인정보 수집에 대한 동의)</h3><p>엔시드(이하 회사)는 이용자들이 회사의 개인정보취급방침 또는 이용약관의 내용에 대하여 "동의"버튼 또는 "취소"버튼을 클릭할 수 있는 절차를 마련하여, "동의"버튼을 클릭하면 개인정보 수집에 대해 동의한 것으로 봅니다.</p></div>
+      <div class="policy__block"><h3>제2조 (개인정보 수집항목)</h3><p><strong>수집항목 :</strong> 성명, 이메일, 전화번호</p></div>
+      <div class="policy__block"><h3>제3조 (개인정보의 이용목적)</h3><p>수집항목은 상담 목적으로만 사용되며, 이용 목적 달성 후 지체 없이 파기합니다.</p></div>
+      <div class="policy__block"><h3>제4조 (개인정보의 보유 및 이용기간)</h3><p>원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.</p></div>
     </div>
     <div class="privacy-modal__footer">
       <button class="btn privacy-modal__btn--cancel" onclick="closePrivacyModal()">닫기</button>
@@ -148,19 +1041,17 @@
       <div class="footer__brand">
         <img src="img/ft_logo.png" alt="엔시드" class="footer__logo-img"
              onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"/>
-        <span class="footer__logo-fallback">
-          <span class="footer__logo-mark">N</span>
-        </span>
+        <span class="footer__logo-fallback"><span class="footer__logo-mark">N</span></span>
         <div class="footer__brand-text">
           <p class="footer__company">주식회사 엔시드</p>
           <p class="footer__slogan">IoT Total Service</p>
         </div>
       </div>
-            <nav class="footer__nav">
-        <a style="cursor:pointer" onclick="event.preventDefault(); showTab('home'); this.blur()">HOME</a>
-        <a style="cursor:pointer" onclick="event.preventDefault(); showTab('product'); this.blur()">PRODUCT</a>
-        <a style="cursor:pointer" onclick="event.preventDefault(); showTab('business'); this.blur()">BUSINESS</a>
-        <a style="cursor:pointer" onclick="event.preventDefault(); showTab('contact'); this.blur()">CONTACT US</a>
+      <nav class="footer__nav">
+        <a style="cursor:pointer" onclick="event.preventDefault();showTab('home')">HOME</a>
+        <a style="cursor:pointer" onclick="event.preventDefault();showTab('product')">PRODUCT</a>
+        <a style="cursor:pointer" onclick="event.preventDefault();showTab('business')">BUSINESS</a>
+        <a style="cursor:pointer" onclick="event.preventDefault();showTab('contact')">CONTACT US</a>
       </nav>
     </div>
     <div class="footer__divider"></div>
@@ -169,20 +1060,16 @@
         <p>경기 안양시 동안구 엘에스로116번길 25-32, 안양 SK V1 center 605호</p>
         <p>대표전화 : 031-8091-0381 &nbsp;|&nbsp; 팩스 : 031-5176-0690 &nbsp;|&nbsp; 대표이사 : 김철현</p>
       </div>
-            <div class="footer__links">
-        <a style="cursor:pointer" onclick="event.preventDefault(); showTab('privacy'); this.blur()">개인정보처리방침</a>
-        <a style="cursor:pointer" onclick="event.preventDefault(); showTab('antiemail'); this.blur()">이메일무단수집거부</a>
+      <div class="footer__links">
+        <a style="cursor:pointer" onclick="event.preventDefault();showTab('privacy')">개인정보처리방침</a>
+        <a style="cursor:pointer" onclick="event.preventDefault();showTab('antiemail')">이메일무단수집거부</a>
       </div>
     </div>
     <p class="footer__copy">COPYRIGHT © ㈜엔시드. ALL RIGHTS RESERVED.</p>
   </div>
 </footer>
 
-<!-- JS -->
-<script src="assets/js/contact.js"></script>
-<script type="module" src="assets/js/main.js"></script>
-
-<!-- ══ 페이지 전환 진행 바 ══ -->
+<!-- ══ 페이지 진행 바 ══ -->
 <div class="page-progress"><div class="page-progress__bar" id="pageProgressBar"></div></div>
 
 <!-- ══ Back to Top ══ -->
@@ -195,6 +1082,13 @@
     <polyline points="18 15 12 9 6 15"/>
   </svg>
 </button>
+
+<!-- JS — 의존성 순서대로 로드 -->
+<script src="assets/js/slider.js"></script>
+<script src="assets/js/counter.js"></script>
+<script src="assets/js/animations.js"></script>
+<script src="assets/js/contact.js"></script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>

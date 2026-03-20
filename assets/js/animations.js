@@ -6,7 +6,7 @@
 /** 스크롤 진입 시 .fade-up 요소에 .visible 클래스 추가 */
 let fadeIO = null;
 
-export function observeFadeUps() {
+function observeFadeUps() {
   if (fadeIO) fadeIO.disconnect();
 
   // 히어로 섹션 요소는 즉시 visible 처리 (페이지 전환 시 깜빡임 방지)
@@ -32,7 +32,7 @@ export function observeFadeUps() {
 }
 
 /** 제품 카드 마우스 3D 틸트 효과 */
-export function initTilt() {
+function initTilt() {
   document.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
