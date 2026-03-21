@@ -429,6 +429,9 @@
   isolation: isolate;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
+.product-card[onclick] {
+  cursor: pointer;
+}
 .product-card:hover {
   border-color: var(--navy-light);
   box-shadow: 0 20px 50px rgba(13, 33, 71, 0.12);
@@ -641,4 +644,9 @@
     left: 10%; right: 10%;
     width: auto; height: 1px;
   }
+}
+
+/* 클릭 가능한 product-card — 자식 요소가 이벤트 가로채지 않도록 */
+.product-card[onclick] * {
+  pointer-events: none;
 }

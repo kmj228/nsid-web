@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="assets/css/business.css"/>
   <link rel="stylesheet" href="assets/css/contact.css"/>
   <link rel="stylesheet" href="assets/css/company.css"/>
+  <link rel="stylesheet" href="assets/css/product.css"/>
   <link rel="stylesheet" href="assets/css/components.css"/>
 </head>
 <body>
@@ -198,7 +199,7 @@
       </div>
       <div class="sec__body">
         <div class="product-grid">
-          <div class="product-card product-card--featured fade-up" style="--delay:0ms">
+          <div class="product-card product-card--featured fade-up" style="--delay:0ms" onclick="goToProduct('prod-nsfmms')">
             <div class="product-card__bg" style="background-image:url('img/product1.jpg')"></div>
             <div class="product-card__badge">대표 제품</div>
             <div class="product-card__icon">
@@ -208,7 +209,7 @@
             <p>GIS 기반 CCTV 시설물 통합관리 솔루션. 실시간 원격 모니터링 및 인가된 사용자 함체 개폐 제어</p>
             <span class="product-card__tag">GS인증</span>
           </div>
-          <div class="product-card fade-up" style="--delay:60ms">
+          <div class="product-card fade-up" style="--delay:60ms" onclick="goToProduct('prod-ifs')">
             <div class="product-card__bg" style="background-image:url('img/product2.jpg')"></div>
             <div class="product-card__icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -217,7 +218,7 @@
             <p>IoT 기술 기반 소화전 실시간 상태 관리 및 불법 주정차 방지 시스템</p>
             <span class="product-card__tag">특허 보유</span>
           </div>
-          <div class="product-card fade-up" style="--delay:120ms">
+          <div class="product-card fade-up" style="--delay:120ms" onclick="goToProduct('prod-iotx')">
             <div class="product-card__bg" style="background-image:url('img/product3.jpg')"></div>
             <div class="product-card__icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -226,7 +227,7 @@
             <p>DVR/NVR · CCTV 연동 원격 장애관리 및 실시간 상태 모니터링 시스템</p>
             <span class="product-card__tag">IoT 연동</span>
           </div>
-          <div class="product-card fade-up" style="--delay:180ms">
+          <div class="product-card fade-up" style="--delay:180ms" onclick="goToProduct('prod-masking')">
             <div class="product-card__bg" style="background-image:url('img/product4.jpg')"></div>
             <div class="product-card__icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -235,7 +236,7 @@
             <p>영상정보 열람·반출 시 개인정보 보호를 위한 모자이크 및 반출 보안 처리</p>
             <span class="product-card__tag">보안 솔루션</span>
           </div>
-          <div class="product-card fade-up" style="--delay:240ms">
+          <div class="product-card fade-up" style="--delay:240ms" onclick="goToProduct('prod-password')">
             <div class="product-card__bg" style="background-image:url('img/product5.jpg')"></div>
             <div class="product-card__icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
@@ -244,7 +245,7 @@
             <p>시스템 패스워드 관리 규제지침 준수를 위한 비밀번호 발급·관리 보안 솔루션</p>
             <span class="product-card__tag">보안 인증</span>
           </div>
-          <div class="product-card fade-up" style="--delay:300ms">
+          <div class="product-card fade-up" style="--delay:300ms" onclick="goToProduct('prod-server')">
             <div class="product-card__bg" style="background-image:url('img/product6.jpg')"></div>
             <div class="product-card__icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
@@ -255,7 +256,7 @@
           </div>
         </div>
         <div class="sec__cta">
-          <a class="btn btn--ghost" data-tab="product">주요 제품 자세히 보기</a>
+          <a class="btn btn--ghost" onclick="goToProduct('prod-nsfmms')" style="cursor:pointer">주요 제품 자세히 보기</a>
         </div>
       </div>
     </div>
@@ -581,7 +582,239 @@
 
 </section>
 
-<section class="page" id="page-product"><div class="empty-page"><h2 class="empty-page__title">PRODUCT</h2></div></section>
+<section class="page" id="page-product">
+
+  <!-- 서브 네비 -->
+  <nav class="sub-nav">
+    <div class="sub-nav__inner">
+      <button class="sub-nav__btn active" data-prod="prod-nsfmms">함체관리시스템</button>
+      <button class="sub-nav__btn" data-prod="prod-ps42reu">전원제어기</button>
+      <button class="sub-nav__btn" data-prod="prod-mfgiok2">교통함체보안관리시스템</button>
+      <button class="sub-nav__btn" data-prod="prod-ifs">지능형 소화전 관리시스템</button>
+      <button class="sub-nav__btn" data-prod="prod-iotx">영상기기 관제시스템</button>
+      <button class="sub-nav__btn" data-prod="prod-masking">마스킹 시스템</button>
+      <button class="sub-nav__btn" data-prod="prod-password">패스워드 솔루션</button>
+      <button class="sub-nav__btn" data-prod="prod-server">SERVER</button>
+    </div>
+  </nav>
+
+  <!-- 제품 패널들 -->
+  <div class="prod-panels">
+
+    <!-- NS-FMMS -->
+    <div class="prod-panel active" id="prod-nsfmms">
+      <div class="biz-sec biz-sec--white">
+        <div class="biz-sec__head fade-up">
+          <span class="sec__tag">CCTV 시설물 관리</span>
+          <h2 class="sec__title">함체관리시스템<br/><em class="prod-name-en">NS-FMMS</em></h2>
+          <p class="sec__desc">GIS 기반 CCTV 시설물 통합관리 솔루션.<br/>실시간 원격 모니터링 및 인가된 사용자 함체 개폐 제어</p>
+        </div>
+        <div class="biz-sec__body">
+          <div class="prod-detail fade-up">
+            <div class="prod-detail__tags">
+              <span class="prod-detail__badge">GS인증</span>
+              <span class="prod-detail__badge">특허 보유</span>
+            </div>
+            <div class="prod-detail__empty">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <p>상세 내용 준비 중입니다</p>
+            </div>
+            <a class="prod-detail__download" href="data/함체관리시스템_NS-FMMS.pdf" download>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              제품 소개서 다운로드
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PS-42REU -->
+    <div class="prod-panel" id="prod-ps42reu">
+      <div class="biz-sec biz-sec--white">
+        <div class="biz-sec__head fade-up">
+          <span class="sec__tag">전원 제어</span>
+          <h2 class="sec__title">전원제어기<br/><em class="prod-name-en">PS-42REU</em></h2>
+          <p class="sec__desc">CCTV 영상감시 장비 및 네트워크 장비의 전원 공급 및<br/>원격 자동 ON/OFF · RESET 제어 장치</p>
+        </div>
+        <div class="biz-sec__body">
+          <div class="prod-detail fade-up">
+            <div class="prod-detail__tags">
+              <span class="prod-detail__badge">안전인증</span>
+              <span class="prod-detail__badge">KC인증</span>
+            </div>
+            <div class="prod-detail__empty">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <p>상세 내용 준비 중입니다</p>
+            </div>
+            <a class="prod-detail__download" href="data/전원제어기_PS-42REU.pdf" download>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              제품 소개서 다운로드
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MFG-IoK2 -->
+    <div class="prod-panel" id="prod-mfgiok2">
+      <div class="biz-sec biz-sec--white">
+        <div class="biz-sec__head fade-up">
+          <span class="sec__tag">함체 보안 관리</span>
+          <h2 class="sec__title">교통함체보안관리시스템<br/><em class="prod-name-en">MFG-IoK2</em></h2>
+          <p class="sec__desc">교통함체 및 모든 원격지 함체의 IoT 기반 모니터링,<br/>환경정보 수집 및 원격 개폐 제어 지원</p>
+        </div>
+        <div class="biz-sec__body">
+          <div class="prod-detail fade-up">
+            <div class="prod-detail__tags">
+              <span class="prod-detail__badge">IoT 보안</span>
+            </div>
+            <div class="prod-detail__empty">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <p>상세 내용 준비 중입니다</p>
+            </div>
+            <a class="prod-detail__download" href="data/교통함체보안관리시스템_MFH-loK2.pdf" download>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              제품 소개서 다운로드
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IFS -->
+    <div class="prod-panel" id="prod-ifs">
+      <div class="biz-sec biz-sec--white">
+        <div class="biz-sec__head fade-up">
+          <span class="sec__tag">소화전 관리</span>
+          <h2 class="sec__title">IoT 기반 지능형 소화전 관리시스템<br/><em class="prod-name-en">IFS</em></h2>
+          <p class="sec__desc">소화전 내부 센서로 상태를 실시간 관리하고<br/>불법 주정차 방지 및 화재 초기 대응을 위한 원격관리 시스템</p>
+        </div>
+        <div class="biz-sec__body">
+          <div class="prod-detail fade-up">
+            <div class="prod-detail__tags">
+              <span class="prod-detail__badge">특허 보유</span>
+              <span class="prod-detail__badge">KC인증</span>
+            </div>
+            <div class="prod-detail__empty">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <p>상세 내용 준비 중입니다</p>
+            </div>
+            <a class="prod-detail__download" href="data/IOT기반_지능형_소화전_관리시스템_IFS.pdf" download>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              제품 소개서 다운로드
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IoT-X -->
+    <div class="prod-panel" id="prod-iotx">
+      <div class="biz-sec biz-sec--white">
+        <div class="biz-sec__head fade-up">
+          <span class="sec__tag">영상기기 관제</span>
+          <h2 class="sec__title">IoT 기반 영상기기 관제시스템<br/><em class="prod-name-en">IoT-X</em></h2>
+          <p class="sec__desc">DVR/NVR · CCTV와 연동하여 장비 상태를 실시간 모니터링하고<br/>원격으로 장애를 관리하는 시스템</p>
+        </div>
+        <div class="biz-sec__body">
+          <div class="prod-detail fade-up">
+            <div class="prod-detail__tags">
+              <span class="prod-detail__badge">IoT 연동</span>
+            </div>
+            <div class="prod-detail__empty">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              <p>상세 내용 준비 중입니다</p>
+            </div>
+            <a class="prod-detail__download" href="data/IOT기반_영상기기_관제시스템_IOT-X.pdf" download>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              제품 소개서 다운로드
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 마스킹 -->
+    <div class="prod-panel" id="prod-masking">
+      <div class="biz-sec biz-sec--white">
+        <div class="biz-sec__head fade-up">
+          <span class="sec__tag">영상정보 보호</span>
+          <h2 class="sec__title">CCTV 영상정보<br/>반출관리 마스킹 시스템</h2>
+          <p class="sec__desc">CCTV 개인영상정보 열람 및 반출 시 모자이크 및 보안 처리로<br/>영상 오남용을 사전에 방지하는 시스템</p>
+        </div>
+        <div class="biz-sec__body">
+          <div class="prod-detail fade-up">
+            <div class="prod-detail__tags">
+              <span class="prod-detail__badge">보안 솔루션</span>
+            </div>
+            <div class="prod-detail__empty">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              <p>상세 내용 준비 중입니다</p>
+            </div>
+            <a class="prod-detail__download" href="data/CCTV영상정보_반출관리_마스킹_시스템.pdf" download>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              제품 소개서 다운로드
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 패스워드 -->
+    <div class="prod-panel" id="prod-password">
+      <div class="biz-sec biz-sec--white">
+        <div class="biz-sec__head fade-up">
+          <span class="sec__tag">보안 솔루션</span>
+          <h2 class="sec__title">패스워드 솔루션</h2>
+          <p class="sec__desc">시스템 패스워드 관리 규제지침 준수를 위한<br/>비밀번호 발급 및 관리에 최적화된 보안 솔루션</p>
+        </div>
+        <div class="biz-sec__body">
+          <div class="prod-detail fade-up">
+            <div class="prod-detail__tags">
+              <span class="prod-detail__badge">보안 인증</span>
+            </div>
+            <div class="prod-detail__empty">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+              <p>상세 내용 준비 중입니다</p>
+            </div>
+            <a class="prod-detail__download" href="data/패스워드_솔루션.pdf" download>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              제품 소개서 다운로드
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVER -->
+    <div class="prod-panel" id="prod-server">
+      <div class="biz-sec biz-sec--white">
+        <div class="biz-sec__head fade-up">
+          <span class="sec__tag">인프라 · 서버</span>
+          <h2 class="sec__title">SERVER</h2>
+          <p class="sec__desc">고객의 경제성을 고려한 최적 구성의<br/>안전성·유연성을 갖춘 고성능 서버</p>
+        </div>
+        <div class="biz-sec__body">
+          <div class="prod-detail fade-up">
+            <div class="prod-detail__tags">
+              <span class="prod-detail__badge">고성능</span>
+            </div>
+            <div class="prod-detail__empty">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              <p>사양 및 견적은 문의 바랍니다</p>
+            </div>
+            <a class="prod-detail__download prod-detail__download--contact" data-tab="contact">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+              견적 문의하기
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /prod-panels -->
+
+</section>
 <section class="page" id="page-business">
 
     <!-- 서브 네비 -->

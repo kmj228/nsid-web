@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           if (tabId === 'business') initSubNav();
           if (tabId === 'company') initSubNav();
+          if (tabId === 'product') initProductNav();
           if (tabId === 'contact') initContact();
           updateBackToTop();
         });
@@ -180,3 +181,50 @@ document.addEventListener('DOMContentLoaded', () => {
   showTab('home');
 
 });
+
+// initProductNav — 버튼 클릭 시 패널 전환만, 스크롤 없음
+function initProductNav() {
+  const btns   = document.querySelectorAll('.sub-nav__btn[data-prod]');
+  const panels = document.querySelectorAll('.prod-panel');
+  if (!btns.length) return;
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      _switchProduct(btn.dataset.prod, btns, panels);
+    });
+  });
+
+  // 첫 패널 fade-up 즉시 실행
+  const firstPanel = document.querySelector('.prod-panel.active');
+  if (firstPanel) {
+    firstPanel.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+  }
+}
+
+// 외부에서도 호출 가능 — 홈 제품 카드 클릭 시 사용
+function _switchProduct(prodId, btns, panels) {
+  btns   = btns   || document.querySelectorAll('.sub-nav__btn[data-prod]');
+  panels = panels || document.querySelectorAll('.prod-panel');
+
+  btns.forEach(b => b.classList.toggle('active', b.dataset.prod === prodId));
+  panels.forEach(p => p.classList.remove('active'));
+
+  const panel = document.getElementById(prodId);
+  if (panel) {
+    panel.classList.add('active');
+    panel.querySelectorAll('.fade-up').forEach(el => {
+      el.classList.remove('visible');
+      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('visible')));
+    });
+  }
+
+  // 패널 전환 시 맨 위로
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// 홈 → 특정 제품 탭으로 이동
+function goToProduct(prodId) {
+  window.showTab('product');
+  // showTab의 탭 전환 + initProductNav 완료 후 패널 전환
+  setTimeout(() => _switchProduct(prodId), 50);
+}
